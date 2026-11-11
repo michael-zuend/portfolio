@@ -1,0 +1,19 @@
+@use 'styles/tokens' as *;
+
+:host {
+  position: fixed;
+  z-index: 20;
+  top: u(29);
+  right: u(160);
+  display: flex;
+  align-items: center;
+  gap: u(45);
+
+  @include mobile {
+    display: none;
+  }
+
+  @include wide {
+    right: 40px;
+  }
+}
