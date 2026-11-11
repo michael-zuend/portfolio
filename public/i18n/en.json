@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "label": "Main navigation",
+    "home": "Back to start",
+    "whyMe": "Why me",
+    "skills": "Skills",
+    "mySkillSet": "My Skill Set",
+    "myWork": "My Work",
+    "contact": "Contact",
+    "contactMe": "Contact me",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "next": "Next section",
+    "backToStart": "Back to start"
+  },
+  "social": {
+    "mail": "Send me an e-mail",
+    "linkedin": "LinkedIn profile",
+    "github": "GitHub profile"
+  },
+  "hero": {
+    "role": "Frontend Developer",
+    "location": "Oberriet, Switzerland"
+  },
+  "whyMe": {
+    "title": "Why me",
+    "text": "I enjoy turning ideas into applications that work reliably and are easy to use. What drives me is the moment a complex problem becomes a clean, understandable solution. I keep improving my skills through my own projects, code reviews and new technologies.",
+    "iAm": "I am",
+    "located": "located in Oberriet, CH",
+    "remote": "open to work remote",
+    "relocate": "open to relocate",
+    "cta": "Contact me"
+  },
+  "skills": {
+    "title": "My Skill Set",
+    "text": "In several projects I have built web applications with Angular, TypeScript and JavaScript, from the first layout to a working app with a database. I learn new technologies quickly and enjoy working my way into tools I have not used before.",
+    "challengeTitle": "Challenge me",
+    "challenge": "You need a technology I have not used yet? I am happy to learn it and use it in your project.",
+    "cta": "Let's talk"
+  },
+  "work": {
+    "title": "My Work",
+    "project": "Project",
+    "about": "About the project",
+    "technologies": "Technologies I have used",
+    "learned": "What I have learned",
+    "group": "My group-projects experience",
+    "github": "GitHub",
+    "live": "Live Test",
+    "showMore": "Show me more",
+    "showLess": "Show me less",
+    "ongoingTitle": "Ongoing project",
+    "ongoing": "I am currently building a backend with Docker and a CI/CD pipeline. My focus is on security from the start: automated tests, dependency checks and clean deployments. Good planning makes the difference between a project that runs and one that lasts.",
+    "ongoingCta": "Let's talk",
+    "join": {
+      "about": "Kanban task manager. Create tasks, assign contacts and move them by drag and drop. Stakeholders can send requests by e-mail, an AI workflow turns them into tasks.",
+      "third": "Group project with [number] people, I worked on [your part]. On my own I then added an AI workflow: n8n reads incoming e-mails, Gemini turns them into structured tasks and saves them in the Triage column."
+    },
+    "polloLoco": {
+      "about": "Jump, run and throw game based on an object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.",
+      "third": "Solo project. I learned to plan a class structure before coding: character, chickens and endboss inherit from one shared base class, so movement and collision logic exists only once."
+    },
+    "dabubble": {
+      "about": "Slack-like team chat with channels, direct messages, threads and reactions in real time, including Google and guest login.",
+      "third": "Solo project in Angular with signals and Firebase. I learned to secure data with Firestore rules (deny by default, members only) and to keep many real-time listeners clean and fast."
+    }
+  },
+  "references": {
+    "title": "References",
+    "teaser": "Need a teamplayer?",
+    "teaserText": "Here what my colleagues said about me",
+    "slide": "Show reference {{n}}"
+  },
+  "contact": {
+    "title": "Contact me",
+    "lead": "Let us work together.",
+    "text": "Looking for a developer who enjoys both frontend and backend? Tell me about your team and the role you have in mind. I am motivated to contribute from day one and to keep growing with your projects.",
+    "email": "E-mail",
+    "phone": "Tel",
+    "name": "Your name",
+    "mail": "Your e-mail",
+    "message": "Your message",
+    "privacyBefore": "I've read the",
+    "privacyLink": "privacy policy",
+    "privacyAfter": "and agree to the processing of my data as outlined.",
+    "send": "Send",
+    "sending": "Sending ...",
+    "success": "Thank you! Your message has been sent. I will get back to you soon.",
+    "failure": "Sorry, your message could not be sent. Please try again or write me an e-mail.",
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "nameShort": "Your name must be at least 2 characters.",
+      "emailRequired": "Please enter your e-mail.",
+      "emailInvalid": "Please enter a valid e-mail address.",
+      "messageRequired": "Please enter a message.",
+      "messageShort": "Your message must be at least 10 characters.",
+      "privacy": "Please accept the privacy policy."
+    }
+  },
+  "footer": {
+    "legal": "Legal notice",
+    "privacy": "privacy policy"
+  }
+}
