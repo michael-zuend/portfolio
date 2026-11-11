@@ -1,0 +1,62 @@
+@use 'styles/tokens' as *;
+
+:host {
+  position: fixed;
+  z-index: 30;
+  inset: 0 auto 0 0;
+  width: u($sidebar-w);
+  // Rechte Kante dunkelt ab wie in Figma (146px -> 172px)
+  background: linear-gradient(90deg, $green 85%, #8ab22d 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.logo {
+  margin-top: u(24);
+  width: u(128);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+nav {
+  margin-top: u(94);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // Abstände aus Figma: Why me 210-322, Skills 365-443, My Work 492-617, Contact 655-766
+  gap: u(43);
+
+  // Widescreen: Menühöhe proportional zur Bildschirmhöhe
+  @include wide {
+    gap: 5vh;
+  }
+
+  button {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: u(30);
+    line-height: u(30);
+    color: $gray;
+    transition:
+      color 0.2s,
+      transform 0.2s;
+
+    @include wide {
+      font-size: 3.3vh;
+    }
+
+    &:hover {
+      color: $bg;
+      transform: rotate(180deg) translateY(4px);
+      text-shadow: 0 0 1px $bg;
+    }
+  }
+}
