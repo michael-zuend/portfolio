@@ -52,17 +52,17 @@
     "ongoingTitle": "Aktuelles Projekt",
     "ongoing": "Zurzeit baue ich ein Backend mit Docker und einer CI/CD-Pipeline. Sicherheit plane ich von Anfang an mit ein: automatische Tests, Prüfung der Abhängigkeiten und saubere Deployments. Gute Planung entscheidet, ob ein Projekt nur läuft oder langfristig trägt.",
     "ongoingCta": "Lass uns reden",
-    "join": {
+        "join": {
       "about": "Kanban-Taskmanager. Aufgaben erstellen, Kontakten zuweisen und per Drag-and-drop verschieben. Anfragen per E-Mail wandelt ein KI-Workflow automatisch in Aufgaben um.",
-      "third": "Gruppenprojekt mit [Anzahl] Personen, ich war zuständig für [dein Teil]. Allein habe ich danach einen KI-Workflow ergänzt: n8n liest eingehende E-Mails, Gemini macht daraus strukturierte Aufgaben und legt sie in der Spalte Triage ab."
+      "third": "Gruppenprojekt mit zwei Teamkollegen, ich war für die Abgabe verantwortlich. Allein habe ich danach einen KI-Workflow ergänzt: n8n liest eingehende E-Mails, Gemini macht daraus strukturierte Aufgaben und legt sie in der Spalte Triage ab."
     },
     "polloLoco": {
       "about": "Jump-and-Run-Spiel mit objektorientiertem Aufbau. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen die verrückte Henne zu kämpfen.",
       "third": "Einzelprojekt. Ich habe gelernt, die Klassenstruktur vor dem Programmieren zu planen: Figur, Hühner und Endboss erben von einer gemeinsamen Basisklasse, Bewegung und Kollision gibt es dadurch nur einmal."
     },
-    "dabubble": {
+        "dabubble": {
       "about": "Team-Chat nach dem Vorbild von Slack: Channels, Direktnachrichten, Threads und Reaktionen in Echtzeit, mit Google- und Gäste-Login.",
-      "third": "Einzelprojekt in Angular mit Signals und Firebase. Ich habe gelernt, Daten mit Firestore-Regeln abzusichern (standardmäßig gesperrt, nur für Mitglieder) und viele Echtzeit-Listener sauber und schnell zu halten."
+      "third": "Als Gruppenprojekt geplant, wegen zu weniger Teilnehmer habe ich es allein in Angular mit Signals und Firebase umgesetzt. Ich habe gelernt, Daten mit Firestore-Regeln abzusichern (standardmäßig gesperrt, nur für Mitglieder) und viele Echtzeit-Listener sauber und schnell zu halten."
     }
   },
   "references": {
