@@ -1,0 +1,238 @@
+@use 'styles/tokens' as *;
+
+article {
+  position: relative;
+  background: linear-gradient(110deg, #343d1b 0%, #36411e 45%, #3d4724 100%);
+  color: $white;
+}
+
+header {
+  display: flex;
+  align-items: flex-end;
+}
+
+.number {
+  font-family: var(--font-outline);
+  font-weight: 400;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px $green;
+}
+
+h3 {
+  font-weight: 400;
+  color: $green;
+  line-height: 1.2;
+}
+
+// Überschriften mit hellgrünem Kreis davor
+h4 {
+  position: relative;
+  font-weight: 400;
+  line-height: 1.2;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -37px;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    border: 2px solid $green-light;
+    border-radius: 50%;
+  }
+}
+
+.preview {
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.links {
+  display: flex;
+}
+
+.toggle {
+  display: none;
+}
+
+// ---------- Desktop: alles absolut wie in Figma ----------
+@include desktop {
+  article {
+    width: u(920);
+    height: u(558);
+    border-radius: u(30);
+  }
+
+  .number {
+    position: absolute;
+    left: u(38);
+    top: u(-2);
+    font-size: u(100);
+  }
+
+  h3 {
+    position: absolute;
+    left: u(113);
+    top: u(20);
+    font-size: u(54);
+  }
+
+  h4 {
+    font-size: u(24);
+    margin-bottom: u(16);
+
+    &::before {
+      left: u(-37);
+      width: u(14);
+      height: u(14);
+      margin-top: u(-7);
+    }
+  }
+
+  .block {
+    position: absolute;
+    left: u(114);
+    font-size: u(18);
+    line-height: u(22);
+  }
+
+  .about {
+    top: u(124);
+    width: u(370);
+  }
+
+  .tech {
+    top: u(289);
+    width: u(380);
+  }
+
+  .third {
+    top: u(404);
+    width: u(770);
+  }
+
+  .preview {
+    position: absolute;
+    left: u(532);
+    top: u(108);
+    width: u(339);
+    height: u(241);
+    border-radius: u(20);
+  }
+
+  .links {
+    position: absolute;
+    left: u(576);
+    top: u(356);
+    gap: u(16);
+
+    .btn {
+      height: u(46);
+      font-size: u(16);
+    }
+
+    .btn--outline {
+      width: u(110);
+    }
+
+    .btn--filled {
+      width: u(126);
+    }
+  }
+}
+
+// ---------- Mobile: aufklappbar ----------
+@include mobile {
+  article {
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    padding: 18px 20px 26px 43px;
+  }
+
+  .details {
+    order: 1;
+  }
+
+  .number {
+    font-size: 40px;
+    margin-left: -21px;
+    margin-right: 6px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 22px;
+    margin-bottom: 18px;
+
+    &::before {
+      left: -30px;
+    }
+  }
+
+  .block {
+    margin-top: 26px;
+    line-height: 21px;
+  }
+
+  .toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 18px auto 0;
+    color: $green;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    img {
+      width: 12px;
+      transition: transform 0.2s;
+    }
+  }
+
+  .details {
+    display: none;
+  }
+
+  :host(.open) {
+    .details {
+      display: block;
+    }
+
+    .toggle {
+      order: 2;
+
+      img {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .preview {
+    margin: 30px 0 0 -30px;
+    width: calc(100% + 30px);
+    height: auto;
+    aspect-ratio: 339 / 241;
+  }
+
+  .links {
+    justify-content: center;
+    gap: 16px;
+    margin: 30px 0 0 -23px;
+
+    .btn {
+      height: 46px;
+      padding: 0 30px;
+    }
+  }
+}

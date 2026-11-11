@@ -1,0 +1,45 @@
+<article [attr.aria-labelledby]="'project-title-' + project().key">
+  <header>
+    <span class="number" aria-hidden="true">{{ number() }}</span>
+    <h3 [id]="'project-title-' + project().key">{{ 'work.project' | translate }} {{ project().title }}</h3>
+  </header>
+
+  <div class="block about">
+    <h4>{{ 'work.about' | translate }}</h4>
+    <p>{{ 'work.' + project().key + '.about' | translate }}</p>
+  </div>
+
+  <button
+    type="button"
+    class="toggle"
+    [attr.aria-expanded]="open()"
+    [attr.aria-controls]="bodyId()"
+    (click)="open.set(!open())"
+  >
+    {{ (open() ? 'work.showLess' : 'work.showMore') | translate }}
+    <img src="assets/icons/triangle.svg" alt="" />
+  </button>
+
+  <div class="details" [id]="bodyId()">
+    <div class="block tech">
+      <h4>{{ 'work.technologies' | translate }}</h4>
+      <p>{{ project().technologies }}</p>
+    </div>
+
+    <div class="block third">
+      <h4>{{ (project().third === 'learned' ? 'work.learned' : 'work.group') | translate }}</h4>
+      <p>{{ 'work.' + project().key + '.third' | translate }}</p>
+    </div>
+
+    <img class="preview" [src]="project().image" [alt]="project().title" width="339" height="241" loading="lazy" />
+
+    <div class="links">
+      <a class="btn btn--outline" [href]="project().github" target="_blank" rel="noopener noreferrer">
+        {{ 'work.github' | translate }}
+      </a>
+      <a class="btn btn--filled" [href]="project().live" target="_blank" rel="noopener noreferrer">
+        {{ 'work.live' | translate }}
+      </a>
+    </div>
+  </div>
+</article>
