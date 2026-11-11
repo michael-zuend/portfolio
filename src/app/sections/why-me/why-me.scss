@@ -1,0 +1,151 @@
+@use 'styles/tokens' as *;
+
+:host {
+  position: relative;
+  display: block;
+
+  @include desktop {
+    flex: 0 0 u(1160);
+    height: 100dvh;
+  }
+
+  @include mobile {
+    padding: 64px 26px 0;
+  }
+}
+
+.text {
+  text-align: justify;
+}
+
+.i-am {
+  font-weight: 700;
+  color: $green;
+  line-height: 1;
+}
+
+.facts li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
+}
+
+// Laptop-Icon hat einen dunklen Bildschirm im SVG
+.facts img {
+  object-fit: contain;
+}
+
+// ---------- Desktop ----------
+@include desktop {
+  .heading {
+    position: absolute;
+    left: u(56);
+    top: u(165);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: u(54);
+  }
+
+  .text {
+    position: absolute;
+    left: u(163);
+    top: u(163);
+    width: u(715);
+    font-size: u(18);
+    line-height: u(22);
+  }
+
+  .i-am {
+    position: absolute;
+    left: u(163);
+    top: u(284);
+    font-size: u(48);
+
+    .colon {
+      display: none;
+    }
+  }
+
+  .facts {
+    position: absolute;
+    left: u(226);
+    top: u(339);
+    display: flex;
+    gap: u(33);
+    font-size: u(18);
+
+    img {
+      height: u(50);
+      margin-bottom: u(6);
+    }
+
+    .pin {
+      width: u(168);
+    }
+    .laptop {
+      width: u(179);
+    }
+    .suitcase {
+      width: u(143);
+    }
+  }
+
+  .cta {
+    position: absolute;
+    left: u(737);
+    top: u(453);
+    width: u(146);
+    height: u(45);
+    font-size: u(16);
+  }
+
+  .arrow {
+    left: u(990);
+    top: u(728);
+  }
+}
+
+// ---------- Mobile ----------
+@include mobile {
+  .heading {
+    font-size: 32px;
+  }
+
+  .text {
+    margin-top: 22px;
+    line-height: 21px;
+    text-align: left;
+  }
+
+  .i-am {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 32px;
+  }
+
+  .facts {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    img {
+      height: 50px;
+      margin-bottom: 12px;
+    }
+
+    .pin {
+      order: 3;
+    }
+  }
+
+  .cta {
+    display: flex;
+    margin: 36px auto 0;
+    width: 146px;
+    height: 45px;
+  }
+}
