@@ -1,0 +1,36 @@
+@use 'styles/tokens' as *;
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: $white;
+
+  span {
+    font-weight: 400;
+  }
+
+  button {
+    padding: 2px 2px;
+    transition: color 0.2s;
+
+    &:hover,
+    &.active {
+      color: $green;
+    }
+  }
+
+  &--dark {
+    font-weight: 400;
+    color: $gray;
+    gap: 10px;
+
+    button:hover,
+    button.active {
+      color: $bg;
+      font-weight: 700;
+    }
+  }
+}
