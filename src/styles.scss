@@ -1,0 +1,112 @@
+@use 'styles/tokens' as *;
+
+:root {
+  // 1 Figma-Pixel. Desktop: proportional zur Höhe, maximal 1px.
+  --u: min(calc(100dvh / 900), 1px);
+  --font: 'Quantico', sans-serif;
+  // Umrandete Überschriften (Schrift folgt aus Figma)
+  --font-outline: 'Quantico', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: $bg;
+  color: $white;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+
+  @include desktop {
+    overflow: hidden; // Desktop scrollt horizontal im Track
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid $green;
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+// Umrandete Abschnittsüberschrift ("Why me", "My Skill Set" ...)
+.outline-heading {
+  font-family: var(--font-outline);
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1.5px $green;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+// Grüner Pillen-Button
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 16px;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+
+  &--filled {
+    background: $green;
+    color: $bg;
+
+    &:hover {
+      box-shadow: 0 0 16px rgba($green, 0.6);
+    }
+  }
+
+  &--outline {
+    border: 1px solid $green;
+    color: $green;
+
+    &:hover {
+      background: $green;
+      color: $bg;
+    }
+  }
+}
