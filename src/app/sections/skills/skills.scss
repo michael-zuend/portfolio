@@ -1,0 +1,137 @@
+@use 'styles/tokens' as *;
+
+:host {
+  position: relative;
+  display: block;
+
+  @include desktop {
+    flex: 0 0 u(1300);
+    height: 100dvh;
+  }
+
+  @include mobile {
+    padding: 80px 26px 0;
+  }
+}
+
+.text {
+  text-align: justify;
+}
+
+.grid li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  img {
+    object-fit: contain;
+    transition: transform 0.25s;
+  }
+
+  &:hover img {
+    transform: translateY(-4px) scale(1.06);
+  }
+}
+
+// ---------- Desktop ----------
+@include desktop {
+  .heading {
+    position: absolute;
+    left: u(49);
+    top: u(473);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: u(54);
+  }
+
+  .text {
+    position: absolute;
+    left: u(160);
+    top: u(471);
+    width: u(865);
+    font-size: u(18);
+    line-height: u(22);
+  }
+
+  .grid {
+    position: absolute;
+    left: u(139);
+    top: u(568);
+    display: grid;
+    grid-template-columns: repeat(6, u(128));
+    grid-auto-rows: u(136);
+    font-size: u(18);
+    line-height: u(22);
+
+    img {
+      width: u(64);
+      height: u(64);
+      margin-bottom: u(4);
+    }
+  }
+
+  .challenge-text {
+    position: absolute;
+    left: u(805);
+    top: u(728);
+    width: u(222);
+    font-size: u(16);
+    line-height: u(19);
+  }
+
+  .cta {
+    display: none;
+  }
+
+  .arrow {
+    left: u(1122);
+    top: u(363);
+  }
+}
+
+// ---------- Mobile ----------
+@include mobile {
+  .heading {
+    font-size: 32px;
+  }
+
+  .text {
+    margin-top: 28px;
+    line-height: 21px;
+  }
+
+  .grid {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 22px;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+
+    span {
+      display: none;
+    }
+
+    .challenge span {
+      display: block;
+      margin-top: 8px;
+      letter-spacing: 0.06em;
+    }
+  }
+
+  .challenge-text {
+    margin-top: 24px;
+    line-height: 21px;
+  }
+
+  .cta {
+    display: flex;
+    margin: 42px auto 0;
+    width: 130px;
+    height: 45px;
+  }
+}

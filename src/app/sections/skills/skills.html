@@ -1,0 +1,24 @@
+<h2 class="outline-heading heading" data-anchor>{{ 'skills.title' | translate }}</h2>
+
+<p class="text">{{ 'skills.text' | translate }}</p>
+
+<ul class="grid">
+  @for (skill of skills; track skill.name) {
+    <li>
+      <img [src]="'assets/icons/' + skill.icon + '.svg'" alt="" width="64" height="64" />
+      <span>{{ skill.name }}</span>
+    </li>
+  }
+  <li class="challenge">
+    <img src="assets/icons/challenge.svg" alt="" width="64" height="64" />
+    <span>{{ 'skills.challengeTitle' | translate }}</span>
+  </li>
+</ul>
+
+<p class="challenge-text">{{ 'skills.challenge' | translate }}</p>
+
+<button type="button" class="btn btn--filled cta" (click)="nav.scrollTo('contact')">
+  {{ 'skills.cta' | translate }}
+</button>
+
+<app-next-arrow from="skills" class="arrow" />
