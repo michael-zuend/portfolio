@@ -1,0 +1,147 @@
+@use 'styles/tokens' as *;
+
+:host {
+  position: relative;
+  display: block;
+  overflow: hidden;
+
+  @include desktop {
+    flex: 0 0 u(1440);
+    height: 100dvh;
+    // Schwarz, rechts leicht aufgehellt (Figma)
+    background: linear-gradient(90deg, #000 45%, #0b0b0b 85%, #111 100%);
+  }
+
+  @include mobile {
+    height: 100dvh; // Hero = 100 % Viewport-Höhe (Checkliste US1)
+    min-height: 560px;
+    padding-top: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 6dvh;
+    background: #0b0a0a;
+  }
+}
+
+.photo img {
+  object-fit: contain;
+}
+
+h1 {
+  font-weight: 700;
+  color: $green;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.role {
+  font-family: var(--font-outline);
+  font-weight: 700;
+  color: $bg;
+  -webkit-text-stroke: 1px $green;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.role-mobile,
+.location {
+  display: none;
+}
+
+// ---------- Desktop ----------
+@include desktop {
+  .photo {
+    position: absolute;
+    left: u(470);
+    top: u(100);
+    height: u(800);
+
+    img {
+      height: 100%;
+      width: auto;
+      object-position: bottom;
+    }
+  }
+
+  .title {
+    position: absolute;
+    left: u(388);
+    top: u(525);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  h1 {
+    font-size: u(100);
+  }
+
+  .role {
+    margin-top: u(42);
+    font-size: u(48);
+  }
+
+  .arrow {
+    left: u(1278);
+    top: u(324);
+  }
+}
+
+// Widescreen: Bild proportional, 400px links und 100px oben
+@include wide {
+  .photo {
+    left: 400px;
+    top: 100px;
+    height: calc(100dvh - 100px);
+  }
+}
+
+// ---------- Mobile ----------
+@include mobile {
+  .photo {
+    flex: 0 1 auto;
+    height: 58dvh;
+    margin-top: 12px;
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+
+    img {
+      height: 100%;
+      max-height: 560px;
+      width: auto;
+      // Unten weich auslaufen lassen wie in Figma
+      mask-image: linear-gradient(180deg, #000 85%, transparent 100%);
+    }
+  }
+
+  .title {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .role-mobile {
+    display: block;
+    font-size: 24px;
+    color: $green;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 40px;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .role {
+    display: none;
+  }
+
+  .location {
+    display: block;
+    margin-top: 4px;
+    font-size: 18px;
+  }
+}

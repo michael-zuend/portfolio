@@ -1,0 +1,13 @@
+<picture class="photo">
+  <source media="(max-width: 1023px), (orientation: portrait)" srcset="img/hero-mobile.webp" />
+  <img src="img/hero.webp" [alt]="name" width="959" height="1600" fetchpriority="high" />
+</picture>
+
+<div class="title">
+  <p class="role-mobile">{{ 'hero.role' | translate }}</p>
+  <h1>{{ name }}</h1>
+  <p class="role">{{ 'hero.role' | translate }}</p>
+  <p class="location">{{ 'hero.location' | translate }}</p>
+</div>
+
+<app-next-arrow from="hero" class="arrow" />
