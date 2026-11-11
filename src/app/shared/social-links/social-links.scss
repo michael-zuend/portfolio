@@ -1,0 +1,33 @@
+@use 'styles/tokens' as *;
+
+ul {
+  display: flex;
+  gap: u(10);
+
+  &.mobile {
+    gap: 18px;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+a {
+  display: block;
+  border-radius: 50%;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba($green, 0.7);
+  }
+}
+
+img {
+  width: u(36);
+  height: u(36);
+}
