@@ -1,0 +1,20 @@
+<h2 class="outline-heading heading" data-anchor>{{ 'work.title' | translate }}</h2>
+
+<ul class="cards">
+  @for (project of projects; track project.key; let i = $index) {
+    <li><app-project-card [project]="project" [number]="i + 1" /></li>
+  }
+</ul>
+
+<div class="ongoing">
+  <h3>
+    <span class="number" aria-hidden="true">{{ projects.length + 1 }}</span>
+    {{ 'work.ongoingTitle' | translate }}
+  </h3>
+  <p>{{ 'work.ongoing' | translate }}</p>
+  <button type="button" class="btn btn--filled" (click)="nav.scrollTo('contact')">
+    {{ 'work.ongoingCta' | translate }}
+  </button>
+</div>
+
+<app-next-arrow from="my-work" class="arrow" />

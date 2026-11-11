@@ -1,0 +1,125 @@
+@use 'styles/tokens' as *;
+
+:host {
+  position: relative;
+  display: block;
+
+  @include desktop {
+    flex: 0 0 u(3600);
+    height: 100dvh;
+  }
+
+  @include mobile {
+    padding: 80px 22px 0;
+  }
+}
+
+.ongoing {
+  h3 {
+    font-weight: 400;
+    color: $green;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .number {
+    font-family: var(--font-outline);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px $green;
+  }
+}
+
+// ---------- Desktop ----------
+@include desktop {
+  .heading {
+    position: absolute;
+    left: u(32);
+    top: u(161);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: u(54);
+  }
+
+  .cards {
+    position: absolute;
+    left: u(126);
+    top: u(154);
+    display: flex;
+    gap: u(40);
+  }
+
+  .ongoing {
+    position: absolute;
+    left: u(3004);
+    top: u(150);
+    width: u(345);
+
+    h3 {
+      font-size: u(30);
+      gap: u(14);
+    }
+
+    .number {
+      font-size: u(48);
+    }
+
+    p {
+      margin-top: u(22);
+      font-size: u(18);
+      line-height: u(23);
+    }
+
+    .btn {
+      margin: u(36) 0 0 u(108);
+      width: u(128);
+      height: u(44);
+      font-size: u(16);
+    }
+  }
+
+  .arrow {
+    left: u(3464);
+    top: u(773);
+  }
+}
+
+// ---------- Mobile ----------
+@include mobile {
+  .heading {
+    font-size: 32px;
+    margin-left: 18px;
+  }
+
+  .cards {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .ongoing {
+    margin-top: 56px;
+
+    h3 {
+      font-size: 24px;
+      gap: 8px;
+    }
+
+    .number {
+      font-size: 40px;
+    }
+
+    p {
+      margin-top: 24px;
+      line-height: 21px;
+    }
+
+    .btn {
+      display: flex;
+      margin: 30px auto 0;
+      width: 130px;
+      height: 45px;
+    }
+  }
+}
