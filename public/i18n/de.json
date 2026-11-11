@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "label": "Hauptnavigation",
+    "home": "Zum Anfang",
+    "whyMe": "Warum ich",
+    "skills": "Skills",
+    "mySkillSet": "Meine Skills",
+    "myWork": "Projekte",
+    "contact": "Kontakt",
+    "contactMe": "Kontakt",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "next": "Nächster Abschnitt",
+    "backToStart": "Zurück zum Anfang"
+  },
+  "social": {
+    "mail": "E-Mail schreiben",
+    "linkedin": "LinkedIn-Profil",
+    "github": "GitHub-Profil"
+  },
+  "hero": {
+    "role": "Frontend Developer",
+    "location": "Oberriet SG"
+  },
+  "whyMe": {
+    "title": "Warum ich",
+    "text": "Mich begeistert es, Ideen in Anwendungen umzusetzen, die zuverlässig funktionieren und einfach zu bedienen sind. Mich treibt der Moment an, in dem aus einem komplexen Problem eine saubere, verständliche Lösung wird. Meine Fähigkeiten baue ich mit eigenen Projekten und neuen Technologien laufend aus.",
+    "iAm": "Ich bin",
+    "located": "wohnhaft in Oberriet SG",
+    "remote": "offen für Remote-Arbeit",
+    "relocate": "umzugsbereit",
+    "cta": "Kontakt"
+  },
+  "skills": {
+    "title": "Meine Skills",
+    "text": "In mehreren Projekten habe ich Webanwendungen mit Angular, TypeScript und JavaScript gebaut, vom ersten Layout bis zur fertigen App mit Datenbank. Neue Technologien lerne ich schnell und arbeite mich gern in Werkzeuge ein, die ich noch nicht kenne.",
+    "challengeTitle": "Fordere mich",
+    "challenge": "Du brauchst eine Technologie, die ich noch nicht kenne? Ich lerne sie gern und setze sie in deinem Projekt ein.",
+    "cta": "Lass uns reden"
+  },
+  "work": {
+    "title": "Projekte",
+    "project": "Projekt",
+    "about": "Über das Projekt",
+    "technologies": "Verwendete Technologien",
+    "learned": "Was ich gelernt habe",
+    "group": "Meine Erfahrung im Team",
+    "github": "GitHub",
+    "live": "Live-Test",
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen",
+    "ongoingTitle": "Aktuelles Projekt",
+    "ongoing": "Zurzeit baue ich ein Backend mit Docker und einer CI/CD-Pipeline. Sicherheit plane ich von Anfang an mit ein: automatische Tests, Prüfung der Abhängigkeiten und saubere Deployments. Gute Planung entscheidet, ob ein Projekt nur läuft oder langfristig trägt.",
+    "ongoingCta": "Lass uns reden",
+    "join": {
+      "about": "Kanban-Taskmanager. Aufgaben erstellen, Kontakten zuweisen und per Drag-and-drop verschieben. Anfragen per E-Mail wandelt ein KI-Workflow automatisch in Aufgaben um.",
+      "third": "Gruppenprojekt mit [Anzahl] Personen, ich war zuständig für [dein Teil]. Allein habe ich danach einen KI-Workflow ergänzt: n8n liest eingehende E-Mails, Gemini macht daraus strukturierte Aufgaben und legt sie in der Spalte Triage ab."
+    },
+    "polloLoco": {
+      "about": "Jump-and-Run-Spiel mit objektorientiertem Aufbau. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen die verrückte Henne zu kämpfen.",
+      "third": "Einzelprojekt. Ich habe gelernt, die Klassenstruktur vor dem Programmieren zu planen: Figur, Hühner und Endboss erben von einer gemeinsamen Basisklasse, Bewegung und Kollision gibt es dadurch nur einmal."
+    },
+    "dabubble": {
+      "about": "Team-Chat nach dem Vorbild von Slack: Channels, Direktnachrichten, Threads und Reaktionen in Echtzeit, mit Google- und Gäste-Login.",
+      "third": "Einzelprojekt in Angular mit Signals und Firebase. Ich habe gelernt, Daten mit Firestore-Regeln abzusichern (standardmäßig gesperrt, nur für Mitglieder) und viele Echtzeit-Listener sauber und schnell zu halten."
+    }
+  },
+  "references": {
+    "title": "Referenzen",
+    "teaser": "Suchst du einen Teamplayer?",
+    "teaserText": "Das sagen meine Kolleginnen und Kollegen",
+    "slide": "Referenz {{n}} anzeigen"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "lead": "Lass uns zusammenarbeiten.",
+    "text": "Du suchst einen Entwickler, der Frontend und Backend gleichermaßen mag? Erzähl mir von deinem Team und der Rolle, die du im Kopf hast. Ich bin motiviert, vom ersten Tag an mitzuarbeiten und mit euren Projekten zu wachsen.",
+    "email": "E-Mail",
+    "phone": "Tel",
+    "name": "Dein Name",
+    "mail": "Deine E-Mail",
+    "message": "Deine Nachricht",
+    "privacyBefore": "Ich habe die",
+    "privacyLink": "Datenschutzerklärung",
+    "privacyAfter": "gelesen und stimme der Verarbeitung meiner Daten zu.",
+    "send": "Senden",
+    "sending": "Wird gesendet ...",
+    "success": "Danke! Deine Nachricht wurde gesendet. Ich melde mich bald bei dir.",
+    "failure": "Die Nachricht konnte leider nicht gesendet werden. Versuch es bitte noch einmal oder schreib mir eine E-Mail.",
+    "errors": {
+      "nameRequired": "Bitte gib deinen Namen ein.",
+      "nameShort": "Der Name muss mindestens 2 Zeichen haben.",
+      "emailRequired": "Bitte gib deine E-Mail ein.",
+      "emailInvalid": "Bitte gib eine gültige E-Mail-Adresse ein.",
+      "messageRequired": "Bitte gib eine Nachricht ein.",
+      "messageShort": "Die Nachricht muss mindestens 10 Zeichen haben.",
+      "privacy": "Bitte akzeptiere die Datenschutzerklärung."
+    }
+  },
+  "footer": {
+    "legal": "Impressum",
+    "privacy": "Datenschutz"
+  }
+}
