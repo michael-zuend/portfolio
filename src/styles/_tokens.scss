@@ -1,0 +1,40 @@
+// Designwerte aus Figma (Version 3).
+// u(n): 1 Figma-Pixel bei 900px Bildschirmhöhe. Auf niedrigeren
+// Bildschirmen schrumpft alles proportional, auf höheren bleibt es 1:1.
+
+@use 'sass:math';
+
+$green: #b5e93b;
+$green-light: #d3ed97;
+$white: #fffdfd;
+$bg: #0b0a0a;
+$gray: #4a4a4a;
+$gray-disabled: #9a9a9a;
+
+$sidebar-w: 172;
+
+// Breakpoints
+$bp-desktop: 1024px; // ab hier horizontales Layout
+$bp-wide: 2400px; // Widescreen laut Figma-Notiz
+
+@function u($n) {
+  @return calc(#{$n} * var(--u));
+}
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media not ((min-width: $bp-desktop) and (orientation: landscape)) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @media (min-width: $bp-wide) and (orientation: landscape) {
+    @content;
+  }
+}
