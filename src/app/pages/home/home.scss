@@ -1,0 +1,45 @@
+@use 'styles/tokens' as *;
+
+.track {
+  @include desktop {
+    display: flex;
+    height: 100dvh;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    // Hintergrund-Verlauf über die ganze Breite (aus Figma gemessen)
+    background: linear-gradient(
+      90deg,
+      #000 0,
+      #000 u(900),
+      #0d0d0d u(1440),
+      #282828 u(2000),
+      #1f1e1e u(2600),
+      #111 u(3300),
+      #0f0f0f u(3800),
+      #1a1a1a u(4400),
+      #262626 u(5000),
+      #2f2f2f u(5600),
+      #1e1e1e u(6200),
+      #0e0d0d u(6800),
+      $bg u(7300)
+    );
+    background-size: u(9640) 100%;
+    background-repeat: no-repeat;
+    background-attachment: local;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    display: block;
+
+    // Tablets: Inhalt nicht zu breit werden lassen
+    > :not(app-hero, app-mobile-footer) {
+      max-width: 720px;
+      margin-inline: auto;
+    }
+  }
+}
