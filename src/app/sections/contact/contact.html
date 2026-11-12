@@ -1,0 +1,109 @@
+<h2 class="outline-heading heading" data-anchor>{{ 'contact.title' | translate }}</h2>
+
+<div class="info">
+  <p class="lead">{{ 'contact.lead' | translate }}</p>
+  <p class="text">{{ 'contact.text' | translate }}</p>
+  <ul class="direct">
+    <li>
+      <img src="assets/icons/envelope.svg" alt="" />
+      <a [href]="'mailto:' + social.email">{{ 'contact.email' | translate }}: {{ social.email }}</a>
+    </li>
+    @if (social.phone) {
+      <li>
+        <img src="assets/icons/phone.svg" alt="" />
+        <a [href]="'tel:' + social.phone.replaceAll(' ', '')">{{ 'contact.phone' | translate }}: {{ social.phone }}</a>
+      </li>
+    }
+  </ul>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <div class="field">
+    <label class="sr-only" for="c-name">{{ 'contact.name' | translate }}</label>
+    <input
+      id="c-name"
+      type="text"
+      formControlName="name"
+      autocomplete="name"
+      [placeholder]="'contact.name' | translate"
+      [class.invalid]="error('name')"
+      [attr.aria-invalid]="!!error('name')"
+      aria-describedby="c-name-err"
+      (focus)="onFocus('name')"
+      (blur)="onBlur('name')"
+    />
+    <p class="error" id="c-name-err" aria-live="polite">{{ error('name') ? (error('name')! | translate) : '' }}</p>
+  </div>
+
+  <div class="field">
+    <label class="sr-only" for="c-email">{{ 'contact.mail' | translate }}</label>
+    <input
+      id="c-email"
+      type="email"
+      formControlName="email"
+      autocomplete="email"
+      [placeholder]="'contact.mail' | translate"
+      [class.invalid]="error('email')"
+      [attr.aria-invalid]="!!error('email')"
+      aria-describedby="c-email-err"
+      (focus)="onFocus('email')"
+      (blur)="onBlur('email')"
+    />
+    <p class="error" id="c-email-err" aria-live="polite">{{ error('email') ? (error('email')! | translate) : '' }}</p>
+  </div>
+
+  <div class="field field--message">
+    <label class="sr-only" for="c-message">{{ 'contact.message' | translate }}</label>
+    <textarea
+      id="c-message"
+      formControlName="message"
+      [placeholder]="'contact.message' | translate"
+      [class.invalid]="error('message')"
+      [attr.aria-invalid]="!!error('message')"
+      aria-describedby="c-message-err"
+      (focus)="onFocus('message')"
+      (blur)="onBlur('message')"
+    ></textarea>
+    <p class="error" id="c-message-err" aria-live="polite">
+      {{ error('message') ? (error('message')! | translate) : '' }}
+    </p>
+  </div>
+
+  <!-- Honeypot: für Menschen unsichtbar -->
+  <input class="hp" type="text" formControlName="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+  <div class="privacy">
+    <label>
+      <input type="checkbox" formControlName="privacy" (change)="onPrivacyChange()" (blur)="onBlur('privacy')" />
+      <span class="box" aria-hidden="true"></span>
+      <span class="label">
+        {{ 'contact.privacyBefore' | translate }}
+        <a routerLink="/privacy-policy">{{ 'contact.privacyLink' | translate }}</a>
+        {{ 'contact.privacyAfter' | translate }}
+      </span>
+    </label>
+    <p class="error" aria-live="polite">{{ error('privacy') ? (error('privacy')! | translate) : '' }}</p>
+  </div>
+
+  <button type="submit" class="send" [disabled]="form.invalid || status() === 'sending'">
+    {{ (status() === 'sending' ? 'contact.sending' : 'contact.send') | translate }}
+  </button>
+
+  <p class="feedback" [class.ok]="status() === 'success'" role="status">
+    @if (status() === 'success') {
+      {{ 'contact.success' | translate }}
+    } @else if (status() === 'error') {
+      {{ 'contact.failure' | translate }}
+    }
+  </p>
+</form>
+
+<app-next-arrow from="contact" [back]="true" class="arrow" />
+
+<nav class="legal" aria-label="Legal">
+  <a routerLink="/legal-notice">{{ 'footer.legal' | translate }}</a>
+  <a routerLink="/privacy-policy">{{ 'footer.privacy' | translate }}</a>
+  <p>© Michael Zünd {{ year }}</p>
+</nav>
+
+<div class="green-end" aria-hidden="true"></div>

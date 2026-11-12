@@ -1,0 +1,383 @@
+@use 'styles/tokens' as *;
+
+:host {
+  position: relative;
+  display: block;
+  background: $bg;
+
+  @include desktop {
+    flex: 0 0 u(1220);
+    height: 100dvh;
+  }
+
+  @include mobile {
+    padding: 70px 26px 0;
+  }
+}
+
+.lead {
+  color: $green;
+}
+
+.direct {
+  li {
+    display: flex;
+    align-items: center;
+  }
+
+  a:hover {
+    color: $green;
+  }
+}
+
+// ---------- Formular ----------
+.field {
+  position: relative;
+}
+
+input[type='text'],
+input[type='email'],
+textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid $green;
+  border-radius: 30px;
+  background: transparent;
+  color: $white;
+  font: inherit;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+
+  &::placeholder {
+    color: rgba($green, 0.5);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 1px $green;
+  }
+
+  &.invalid {
+    border-color: #ff6b6b;
+  }
+
+  // Browser-Autofill darf das Design nicht ändern (Checkliste US7)
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: $white;
+    caret-color: $white;
+    -webkit-box-shadow: 0 0 0 1000px $bg inset;
+    transition: background-color 9999s ease-out 0s;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+// Fehler liegen absolut unter dem Feld: kein Verschieben des Layouts
+.error {
+  position: absolute;
+  left: 25px;
+  top: 100%;
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 14px;
+  color: #ff6b6b;
+  white-space: nowrap;
+}
+
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.privacy {
+  position: relative;
+
+  label {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    color: $green;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    width: 18px;
+    height: 18px;
+  }
+
+  .box {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    border: 2px solid $white;
+    border-radius: 2px;
+    transition: background-color 0.15s;
+  }
+
+  input:checked + .box {
+    background: $green
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2 7l3.5 3.5L12 3.5' fill='none' stroke='%230b0a0a' stroke-width='2'/%3E%3C/svg%3E")
+      center / 12px no-repeat;
+    border-color: $green;
+  }
+
+  input:focus-visible + .box {
+    outline: 2px solid $green;
+    outline-offset: 2px;
+  }
+
+  a {
+    color: $white;
+    padding: 0 2px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .error {
+    left: 0;
+  }
+}
+
+.send {
+  border-radius: 999px;
+  background: $green;
+  color: $bg;
+  transition:
+    background-color 0.2s,
+    box-shadow 0.2s;
+
+  &:hover:not(:disabled) {
+    box-shadow: 0 0 16px rgba($green, 0.6);
+  }
+
+  &:disabled {
+    background: $gray-disabled;
+    color: $gray;
+    cursor: not-allowed;
+  }
+}
+
+.feedback {
+  color: #ff6b6b;
+  font-size: 14px;
+
+  &.ok {
+    color: $green;
+  }
+}
+
+.legal {
+  a:hover {
+    color: $green;
+  }
+}
+
+// ---------- Desktop ----------
+@include desktop {
+  .heading {
+    position: absolute;
+    left: u(56);
+    top: u(156);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: u(54);
+  }
+
+  form {
+    position: absolute;
+    left: u(168);
+    top: u(157);
+    width: u(455);
+    font-size: u(16);
+  }
+
+  .field {
+    margin-bottom: u(18);
+  }
+
+  input[type='text'],
+  input[type='email'] {
+    height: u(58);
+    padding: 0 u(25);
+  }
+
+  textarea {
+    height: u(253);
+    padding: u(18) u(21);
+  }
+
+  .error {
+    font-size: u(12);
+    line-height: u(14);
+    margin-top: u(2);
+  }
+
+  .privacy {
+    margin-left: u(6);
+    margin-top: u(10);
+    width: u(450);
+    line-height: u(22);
+
+    .box {
+      margin-right: u(9);
+    }
+  }
+
+  .send {
+    display: block;
+    margin: u(14) 0 0 u(354);
+    width: u(99);
+    height: u(44);
+    font-size: u(16);
+  }
+
+  .feedback {
+    position: absolute;
+    left: 0;
+    top: calc(100% + #{u(10)});
+    width: u(455);
+  }
+
+  .info {
+    position: absolute;
+    right: u(122); // rechte Kante bei 1098
+    top: u(151);
+    width: u(410);
+    text-align: right;
+    font-size: u(18);
+    line-height: u(22);
+  }
+
+  .text {
+    margin-top: u(22);
+  }
+
+  .direct {
+    margin-top: u(38);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: u(16);
+
+    img {
+      width: u(22);
+      margin-right: u(12);
+    }
+  }
+
+  .arrow {
+    left: u(974);
+    top: u(553);
+  }
+
+  .legal {
+    position: absolute;
+    right: u(128);
+    top: u(765);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: u(19);
+    font-size: u(16);
+
+    p {
+      margin-top: u(-8);
+    }
+  }
+
+  .green-end {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: u(100);
+    height: 100%;
+    background: linear-gradient(180deg, $green 0%, $green 60%, #8ab22d 100%);
+  }
+}
+
+// ---------- Mobile ----------
+@include mobile {
+  .heading {
+    font-size: 32px;
+  }
+
+  .lead {
+    margin-top: 24px;
+  }
+
+  .text {
+    margin-top: 22px;
+    line-height: 21px;
+  }
+
+  .direct {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-left: 8px;
+
+    img {
+      width: 22px;
+      margin-right: 14px;
+    }
+  }
+
+  form {
+    margin-top: 40px;
+  }
+
+  .field {
+    margin-bottom: 18px;
+  }
+
+  input[type='text'],
+  input[type='email'] {
+    height: 60px;
+    padding: 0 26px;
+  }
+
+  textarea {
+    height: 255px;
+    padding: 26px 24px;
+  }
+
+  .privacy {
+    margin-top: 6px;
+    line-height: 21px;
+
+    .box {
+      margin-right: 14px;
+    }
+  }
+
+  .send {
+    display: block;
+    margin: 18px 0 0 auto;
+    width: 94px;
+    height: 44px;
+  }
+
+  .feedback {
+    margin-top: 12px;
+    min-height: 34px;
+  }
+
+  .arrow,
+  .legal,
+  .green-end {
+    display: none;
+  }
+}
