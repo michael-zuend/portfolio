@@ -45,9 +45,11 @@ export class NavService {
     this.scrollTo(id);
   }
 
+  /** Nächster vorhandener Abschnitt (z. B. ohne Referenzen direkt zu Kontakt). */
   next(current: SectionId): void {
-    const i = SECTION_ORDER.indexOf(current);
-    this.scrollTo(SECTION_ORDER[Math.min(i + 1, SECTION_ORDER.length - 1)]);
+    const rest = SECTION_ORDER.slice(SECTION_ORDER.indexOf(current) + 1);
+    const target = rest.find((id) => document.getElementById(id));
+    if (target) this.scrollTo(target);
   }
 
   scrollTo(id: SectionId, smooth = true): void {
