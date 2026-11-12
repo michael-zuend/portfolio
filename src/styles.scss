@@ -70,14 +70,19 @@ ul {
 }
 
 // Umrandete Abschnittsüberschrift ("Why me", "My Skill Set" ...)
+// Figma: Quantico 400, Kontur 3px aussen (#B5E93B), Zeilenhöhe 120 %.
+// CSS-Konturen liegen mittig auf der Linie. Darum 6px Kontur und die
+// Füllung (Hintergrundfarbe) darübermalen: übrig bleiben 3px aussen.
 .outline-heading {
   font-family: var(--font-outline);
-  font-weight: 700;
-  color: transparent;
-  -webkit-text-stroke: 1.5px $green;
-  line-height: 1;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #141414;
+  -webkit-text-stroke: 6px $green;
+  paint-order: stroke fill;
   white-space: nowrap;
 }
+
 
 // Grüner Pillen-Button
 .btn {
