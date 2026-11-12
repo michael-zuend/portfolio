@@ -1,10 +1,10 @@
 @use 'styles/tokens' as *;
 
 :root {
-  // 1 Figma-Pixel. Desktop: proportional zur Höhe, maximal 1px.
-  --u: min(calc(100dvh / 900), 1px);
+  // 1 Figma-Pixel, proportional zur Bildschirmhöhe (Figma = 900px hoch).
+  --u: calc(100dvh / 900);
   --font: 'Quantico', sans-serif;
-  // Umrandete Überschriften (Schrift folgt aus Figma)
+  // Umrandete Überschriften
   --font-outline: 'Quantico', sans-serif;
 }
 
@@ -55,6 +55,13 @@ ul {
   list-style: none;
 }
 
+// Widescreen: Inhalte nicht weiter vergrössern (Figma-Notiz)
+@include wide {
+  :root {
+    --u: min(calc(100dvh / 900), 1px);
+  }
+}
+
 :focus-visible {
   outline: 2px solid $green;
   outline-offset: 3px;
@@ -82,7 +89,6 @@ ul {
   paint-order: stroke fill;
   white-space: nowrap;
 }
-
 
 // Grüner Pillen-Button
 .btn {

@@ -30,9 +30,10 @@ export class NavService {
     return window.matchMedia('(min-width: 1024px) and (orientation: landscape)').matches;
   }
 
-  /** 1 Figma-Pixel in echten Pixeln (wie --u im CSS). */
+  /** 1 Figma-Pixel in echten Pixeln (wie --u im CSS). Ab 2400px Breite maximal 1px. */
   unit(): number {
-    return Math.min(window.innerHeight / 900, 1);
+    const u = window.innerHeight / 900;
+    return window.innerWidth >= 2400 ? Math.min(u, 1) : u;
   }
 
   /** Von überall aufrufbar, auch von den Rechtsseiten aus. */
