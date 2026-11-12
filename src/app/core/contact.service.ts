@@ -6,14 +6,14 @@ export interface ContactMessage {
   name: string;
   email: string;
   message: string;
-  /** Honeypot gegen Spam-Bots, muss leer bleiben */
+  /** Honeypot against spam bots, must stay empty */
   website: string;
 }
 
 /**
- * Schickt das Kontaktformular an das PHP-Script auf dem Server
- * (public/sendMail.php). Später durch das eigene Backend ersetzbar,
- * dann nur die URL hier ändern.
+ * Sends the contact form to the PHP script on the server
+ * (public/sendMail.php). Can later be replaced by my own backend,
+ * then only the URL here needs to change.
  */
 @Injectable({ providedIn: 'root' })
 export class ContactService {

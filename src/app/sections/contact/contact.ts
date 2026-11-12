@@ -9,7 +9,7 @@ import { NextArrow } from '../../shared/next-arrow/next-arrow';
 type Field = 'name' | 'email' | 'message' | 'privacy';
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
-// Strenger als Validators.email: verlangt eine Domain mit Punkt (name@domain.ch)
+// Stricter than Validators.email: requires a domain with a dot (name@domain.ch)
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 @Component({
@@ -26,7 +26,7 @@ export class Contact {
   protected readonly status = signal<Status>('idle');
   protected readonly year = new Date().getFullYear();
 
-  /** Felder, deren Fehler gerade angezeigt werden dürfen (erst nach dem Verlassen) */
+  /** Fields whose errors may be shown right now (only after leaving the field) */
   private readonly showErrors = signal<Record<Field, boolean>>({
     name: false,
     email: false,
@@ -42,12 +42,12 @@ export class Contact {
     website: [''], // Honeypot
   });
 
-  /** Beim Betreten eines Feldes: Fehler ausblenden, solange getippt wird. */
+  /** On focus: hide the error while the user is typing. */
   protected onFocus(field: Field): void {
     this.showErrors.update((s) => ({ ...s, [field]: false }));
   }
 
-  /** Beim Verlassen eines Feldes: jetzt prüfen (Checkliste US7: onBlur). */
+  /** On blur: validate now (checklist US7: onBlur). */
   protected onBlur(field: Field): void {
     this.showErrors.update((s) => ({ ...s, [field]: true }));
   }
@@ -56,7 +56,7 @@ export class Contact {
     this.showErrors.update((s) => ({ ...s, privacy: true }));
   }
 
-  /** Übersetzungsschlüssel der Fehlermeldung oder null */
+  /** Translation key of the error message, or null */
   protected error(field: Field): string | null {
     const control = this.form.controls[field];
     if (!this.showErrors()[field] || control.valid) return null;

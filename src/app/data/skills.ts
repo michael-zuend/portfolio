@@ -1,4 +1,4 @@
-/** Skill-Icons in der Reihenfolge aus Figma. Datei liegt in public/assets/icons/<icon>.svg */
+/** Skill icons in the order from Figma. Files are in public/assets/icons/<icon>.svg */
 export interface Skill {
   name: string;
   icon: string;

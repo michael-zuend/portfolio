@@ -10,9 +10,9 @@ The site presents my projects, skills and a contact form. It is based on a Figma
 
 ## Features
 
-- **Horizontal scrolling on desktop.** The whole page is one horizontal track. Mouse wheel, arrow buttons and the sidebar menu move between sections. After each jump the section heading is visible first, as required by the design.
+- **Horizontal scrolling on desktop.** The whole page is one horizontal track. One turn of the mouse wheel snaps to the next section; wider sections are scrolled through first. Arrow buttons and the sidebar menu jump directly. After each jump the section heading is visible first, as required by the design.
 - **Vertical layout on mobile and tablet** with burger menu and expandable project cards.
-- **Widescreen layout** from 2400 px: the menu scales with the screen height.
+- **Full-width hero** on every screen size, including widescreen monitors.
 - **German and English.** All texts live in JSON files and can be switched at runtime. German is the default, the choice is remembered in the browser.
 - **Contact form** with validation on blur (not while typing), no layout shift for error messages, a disabled send button until the form is valid, and clear success or error feedback.
 - **Legal notice and privacy policy** as separate routes.
@@ -35,7 +35,7 @@ The site presents my projects, skills and a contact form. It is based on a Figma
 The Figma design is 900 px high. In SCSS, `u(18)` means "18 Figma pixels". At 900 px screen height this is exactly 18 px, on smaller screens everything scales down proportionally. This keeps the horizontal layout faithful to the design without breaking on laptops with less height.
 
 **Content separated from markup.**
-Projects, skills and social links are stored in `src/app/data/`. Adding a project means adding one entry and two text blocks, no HTML changes. The references section only appears once at least two real quotes exist.
+Projects, skills and social links are stored in `src/app/data/`. Adding a project means adding one entry and two text blocks, no HTML changes.
 
 **Signals instead of manual state.**
 Menu state, language and form status are Angular signals, so the UI updates without manual change detection.
@@ -54,9 +54,9 @@ Security was considered from the start, not added at the end:
 ```
 src/app/
   core/       language service, navigation (horizontal scrolling), contact service
-  data/       projects, skills, references, social links  <- edit content here
+  data/       projects, skills, social links  <- edit content here
   layout/     sidebar, top links, mobile header and footer, legal page layout
-  sections/   hero, why me, skills, my work, references, contact
+  sections/   hero, why me, skills, my work, contact
   pages/      home, legal notice, privacy policy
   shared/     logo, social icons, next-section arrow
 src/styles/   design tokens, breakpoints, u() scale function

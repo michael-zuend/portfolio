@@ -1,7 +1,7 @@
 import { Component, inject, input } from '@angular/core';
 import { Lang, LanguageService } from '../../core/language.service';
 
-/** Umschalter DE | EN. Die aktive Sprache ist hervorgehoben. */
+/** DE | EN switch. The active language is highlighted. */
 @Component({
   selector: 'app-lang-switch',
   template: `
@@ -26,6 +26,6 @@ import { Lang, LanguageService } from '../../core/language.service';
 export class LangSwitch {
   protected readonly lang = inject(LanguageService);
   protected readonly langs: Lang[] = ['de', 'en'];
-  /** Dunkle Schrift auf grünem Grund (Mobile-Menü) */
+  /** Dark text on a green background (mobile menu) */
   readonly dark = input(false);
 }

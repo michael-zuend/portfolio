@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { SOCIAL } from '../../data/social';
 
-/** E-Mail, LinkedIn, GitHub als runde weiße Icons. */
+/** Email, LinkedIn and GitHub as round white icons. */
 @Component({
   selector: 'app-social-links',
   imports: [TranslatePipe],
@@ -25,7 +25,7 @@ import { SOCIAL } from '../../data/social';
   styleUrl: './social-links.scss',
 })
 export class SocialLinks {
-  /** Mobile-Footer hat die Reihenfolge GitHub, Mail, LinkedIn */
+  /** The mobile footer uses the order GitHub, Mail, LinkedIn */
   readonly order = input<'desktop' | 'mobile'>('desktop');
 
   protected links() {

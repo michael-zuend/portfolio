@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { NavService, SectionId } from '../../core/nav.service';
 
-/** Desktop: grüne Leiste links mit Logo und senkrechtem Menü. */
+/** Desktop: green bar on the left with logo and vertical menu. */
 @Component({
   selector: 'app-sidebar',
   imports: [Logo, TranslatePipe],

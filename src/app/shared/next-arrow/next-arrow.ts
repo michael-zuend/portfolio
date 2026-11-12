@@ -2,7 +2,7 @@ import { Component, inject, input } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { NavService, SectionId } from '../../core/nav.service';
 
-/** Grüner Pfeil, springt zum nächsten Abschnitt (nur Desktop). */
+/** Green arrow that jumps to the next section (desktop only). */
 @Component({
   selector: 'app-next-arrow',
   imports: [TranslatePipe],

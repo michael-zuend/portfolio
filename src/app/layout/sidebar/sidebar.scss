@@ -5,7 +5,7 @@
   z-index: 30;
   inset: 0 auto 0 0;
   width: u($sidebar-w);
-  // Rechte Kante dunkelt ab wie in Figma (146px -> 172px)
+  // Right edge darkens like in Figma (146px -> 172px)
   background: linear-gradient(90deg, $green 85%, #8ab22d 100%);
   display: flex;
   flex-direction: column;
@@ -31,10 +31,10 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // Abstände aus Figma: Why me 210-322, Skills 365-443, My Work 492-617, Contact 655-766
+  // Spacing from Figma: Why me 210-322, Skills 365-443, My Work 492-617, Contact 655-766
   gap: u(43);
 
-  // Widescreen: Menühöhe proportional zur Bildschirmhöhe
+  // Widescreen: menu height proportional to the screen height
   @include wide {
     gap: 5vh;
   }

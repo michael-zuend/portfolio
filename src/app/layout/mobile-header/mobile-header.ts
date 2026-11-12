@@ -4,7 +4,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { NavService, SectionId } from '../../core/nav.service';
 import { LangSwitch } from '../lang-switch/lang-switch';
 
-/** Mobile: grüner Header mit Logo, Burger und ausklappbarem Menü. */
+/** Mobile: green header with logo, burger button and expandable menu. */
 @Component({
   selector: 'app-mobile-header',
   imports: [Logo, TranslatePipe, LangSwitch],

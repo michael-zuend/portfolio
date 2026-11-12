@@ -1,10 +1,10 @@
 <?php
 /**
- * Kontaktformular: nimmt JSON vom Angular-Formular entgegen und schickt
- * eine E-Mail. Liegt nach dem Build direkt im Web-Root.
+ * Contact form: receives JSON from the Angular form and sends
+ * an email. After the build it sits directly in the web root.
  *
- * $sender ist eine Adresse der eigenen Domain, sonst landen die Mails
- * oft im Spam. Beide Adressen in my.cyon anlegen.
+ * $sender is an address of the own domain, otherwise the mails
+ * often end up in spam. Create both addresses in my.cyon.
  */
 
 $recipient = 'kontakt@michaelzuend.ch';
@@ -33,7 +33,7 @@ if (!is_array($data)) {
     exit;
 }
 
-// Honeypot ausgefüllt: Bot. So tun, als wäre alles ok.
+// Honeypot filled in: bot. Pretend everything is ok.
 if (!empty($data['website'])) {
     echo json_encode(['ok' => true]);
     exit;
@@ -43,7 +43,7 @@ $name = trim((string) ($data['name'] ?? ''));
 $email = trim((string) ($data['email'] ?? ''));
 $message = trim((string) ($data['message'] ?? ''));
 
-// Serverseitig nochmals prüfen: dem Browser nie blind vertrauen
+// Validate again on the server: never trust the browser blindly
 if (
     mb_strlen($name) < 2 || mb_strlen($name) > 100 ||
     !filter_var($email, FILTER_VALIDATE_EMAIL) ||
@@ -54,19 +54,18 @@ if (
     exit;
 }
 
-// Zeilenumbrüche aus Header-Werten entfernen (Schutz vor Header-Injection)
+// Strip line breaks from header values (protection against header injection)
 $name = str_replace(["\r", "\n"], ' ', $name);
 
 $subject = '=?UTF-8?B?' . base64_encode('Portfolio: Nachricht von ' . $name) . '?=';
 $body = "Name: $name\nE-Mail: $email\n\n$message\n";
 $headers = [
-    'From' => 'Portfolio Michael Zuend <' . $sender . '>',
+    'From' => $sender,
     'Reply-To' => $email,
-    'MIME-Version' => '1.0',
     'Content-Type' => 'text/plain; charset=utf-8',
+    'X-Mailer' => 'Portfolio',
 ];
 
-// Echter Absender = eigene Domain (-f), sonst stuft der Spamfilter die Mail als Fälschung ein
-$sent = mail($recipient, $subject, $body, $headers, '-f ' . $sender);
+$sent = mail($recipient, $subject, $body, $headers);
 http_response_code($sent ? 200 : 500);
 echo json_encode(['ok' => $sent]);

@@ -4,7 +4,7 @@ import { LanguageService } from '../../core/language.service';
 import { SOCIAL } from '../../data/social';
 import { LegalLayout } from '../../layout/legal-layout/legal-layout';
 
-/** Datenschutzerklärung. Keine Rechtsberatung. */
+/** Privacy policy. Not legal advice. */
 @Component({
   selector: 'app-privacy-policy',
   imports: [LegalLayout, TranslatePipe],

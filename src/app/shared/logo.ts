@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 /**
- * Logo "MZ" mit Bogentext "frontend developer", im Stil der Figma-Vorlage.
- * Inline-SVG, damit die Webschrift Quantico verwendet wird.
+ * "MZ" logo with the curved text "frontend developer", styled like the Figma template.
+ * Inline SVG so that the Quantico web font is used.
  */
 @Component({
   selector: 'app-logo',

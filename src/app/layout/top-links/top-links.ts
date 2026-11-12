@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { LangSwitch } from '../lang-switch/lang-switch';
 import { SocialLinks } from '../../shared/social-links/social-links';
 
-/** Desktop: Social-Icons und Sprachwahl oben rechts (fixiert). */
+/** Desktop: social icons and language switch at the top right (fixed). */
 @Component({
   selector: 'app-top-links',
   imports: [LangSwitch, SocialLinks],

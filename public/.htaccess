@@ -1,18 +1,18 @@
-# Richtige Dateitypen (sonst blockiert 'nosniff' SVG-Icons)
+# Correct file types (otherwise 'nosniff' blocks the SVG icons)
 AddType image/svg+xml .svg
 AddType image/webp .webp
 
-# HTTPS erzwingen (Checkliste US6)
+# Force HTTPS (checklist US6)
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Angular-Routing: unbekannte Pfade auf index.html (z. B. /legal-notice)
+# Angular routing: send unknown paths to index.html (e.g. /legal-notice)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [L]
 
-# Sicherheits-Header
+# Security headers
 <IfModule mod_headers.c>
   Header always set Strict-Transport-Security "max-age=31536000"
   Header always set X-Content-Type-Options "nosniff"

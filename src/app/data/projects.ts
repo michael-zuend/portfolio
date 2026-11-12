@@ -1,15 +1,15 @@
 /**
- * Projekte. Neue Projekte hier ergänzen, kein HTML ändern nötig.
- * Texte stehen in public/i18n/de.json und en.json unter work.<key>.
+ * Projects. Add new projects here, no HTML changes needed.
+ * Texts are in public/i18n/de.json and en.json under work.<key>.
  */
 export interface Project {
-  key: string; // Schlüssel für Übersetzungen
+  key: string; // key for translations
   title: string;
   image: string;
   technologies: string;
   github: string;
   live: string;
-  /** Dritter Textblock: 'learned' = Was ich gelernt habe, 'group' = Teamerfahrung */
+  /** Third text block: 'learned' = what I learned, 'group' = team experience */
   third: 'learned' | 'group';
 }
 
@@ -23,7 +23,6 @@ export const PROJECTS: Project[] = [
     live: 'https://join.michaelzuend.ch',
     third: 'group',
   },
-  
   {
     key: 'polloLoco',
     title: 'Pollo Loco',
@@ -33,8 +32,7 @@ export const PROJECTS: Project[] = [
     live: 'https://pollo-loco.michaelzuend.ch',
     third: 'learned',
   },
-
-    {
+  {
     key: 'dabubble',
     title: 'DA Bubble',
     image: 'img/projects/dabubble.webp',

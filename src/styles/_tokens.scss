@@ -1,6 +1,6 @@
-// Designwerte aus Figma (Version 3).
-// u(n): 1 Figma-Pixel bei 900px Bildschirmhöhe. Auf niedrigeren
-// Bildschirmen schrumpft alles proportional, auf höheren bleibt es 1:1.
+// Design values from Figma (version 3).
+// u(n): 1 Figma pixel at a screen height of 900px. On lower
+// screens everything shrinks proportionally, on higher ones it stays 1:1.
 
 @use 'sass:math';
 
@@ -14,8 +14,8 @@ $gray-disabled: #9a9a9a;
 $sidebar-w: 172;
 
 // Breakpoints
-$bp-desktop: 1024px; // ab hier horizontales Layout
-$bp-wide: 2400px; // Widescreen laut Figma-Notiz
+$bp-desktop: 1024px; // horizontal layout from here
+$bp-wide: 2400px; // widescreen according to the Figma note
 
 @function u($n) {
   @return calc(#{$n} * var(--u));

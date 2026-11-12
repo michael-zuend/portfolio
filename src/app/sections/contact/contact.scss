@@ -30,7 +30,7 @@
   }
 }
 
-// ---------- Formular ----------
+// ---------- Form ----------
 .field {
   position: relative;
 }
@@ -62,7 +62,7 @@ textarea {
     border-color: #ff6b6b;
   }
 
-  // Browser-Autofill darf das Design nicht ändern (Checkliste US7)
+  // Browser autofill must not change the design (checklist US7)
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
@@ -77,7 +77,7 @@ textarea {
   resize: none;
 }
 
-// Fehler liegen absolut unter dem Feld: kein Verschieben des Layouts
+// Errors are positioned absolutely below the field: no layout shift
 .error {
   position: absolute;
   left: 25px;
@@ -252,7 +252,7 @@ textarea {
 
   .info {
     position: absolute;
-    right: u(122); // rechte Kante bei 1098
+    right: u(122); // right edge at 1098
     top: u(151);
     width: u(410);
     text-align: right;

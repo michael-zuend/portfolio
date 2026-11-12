@@ -5,7 +5,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { NavService } from '../../core/nav.service';
 import { SocialLinks } from '../../shared/social-links/social-links';
 
-/** Mobile: Pfeil nach oben, Social-Icons und grüner Footer. */
+/** Mobile: arrow to the top, social icons and green footer. */
 @Component({
   selector: 'app-mobile-footer',
   imports: [Logo, RouterLink, TranslatePipe, SocialLinks],

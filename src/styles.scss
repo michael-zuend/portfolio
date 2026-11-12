@@ -1,10 +1,10 @@
 @use 'styles/tokens' as *;
 
 :root {
-  // 1 Figma-Pixel, proportional zur Bildschirmhöhe (Figma = 900px hoch).
+  // 1 Figma pixel, proportional to the screen height (Figma frame = 900px high).
   --u: calc(100dvh / 900);
   --font: 'Quantico', sans-serif;
-  // Umrandete Überschriften
+  // Outlined headings (font taken from Figma)
   --font-outline: 'Quantico', sans-serif;
 }
 
@@ -29,7 +29,7 @@ body {
   -webkit-font-smoothing: antialiased;
 
   @include desktop {
-    overflow: hidden; // Desktop scrollt horizontal im Track
+    overflow: hidden; // Desktop scrolls horizontally inside the track
   }
 }
 
@@ -55,7 +55,7 @@ ul {
   list-style: none;
 }
 
-// Widescreen: Inhalte nicht weiter vergrössern (Figma-Notiz)
+// Widescreen: stop scaling content up (Figma note)
 @include wide {
   :root {
     --u: min(calc(100dvh / 900), 1px);
@@ -76,10 +76,10 @@ ul {
   white-space: nowrap;
 }
 
-// Umrandete Abschnittsüberschrift ("Why me", "My Skill Set" ...)
-// Figma: Quantico 400, Kontur 3px aussen (#B5E93B), Zeilenhöhe 120 %.
-// CSS-Konturen liegen mittig auf der Linie. Darum 6px Kontur und die
-// Füllung (Hintergrundfarbe) darübermalen: übrig bleiben 3px aussen.
+// Outlined section heading ("Why me", "My Skill Set" ...)
+// Figma: Quantico 400, 3px outside stroke (#B5E93B), line height 120 %.
+// CSS strokes are centered on the outline. So we use a 6px stroke and
+// paint the fill (background color) on top: 3px remain outside.
 .outline-heading {
   font-family: var(--font-outline);
   font-weight: 400;
@@ -90,7 +90,7 @@ ul {
   white-space: nowrap;
 }
 
-// Grüner Pillen-Button
+// Green pill button
 .btn {
   display: inline-flex;
   align-items: center;
