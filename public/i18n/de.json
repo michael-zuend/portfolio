@@ -1,104 +1,104 @@
 {
   "nav": {
-    "label": "Main navigation",
-    "home": "Back to start",
-    "whyMe": "Why me",
+    "label": "Hauptnavigation",
+    "home": "Zum Anfang",
+    "whyMe": "Warum ich",
     "skills": "Skills",
-    "mySkillSet": "My Skill Set",
-    "myWork": "My Work",
-    "contact": "Contact",
-    "contactMe": "Contact me",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu",
-    "next": "Next section",
-    "backToStart": "Back to start"
+    "mySkillSet": "Meine Skills",
+    "myWork": "Projekte",
+    "contact": "Kontakt",
+    "contactMe": "Kontakt",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "next": "Nächster Abschnitt",
+    "backToStart": "Zurück zum Anfang"
   },
   "social": {
-    "mail": "Send me an e-mail",
-    "linkedin": "LinkedIn profile",
-    "github": "GitHub profile"
+    "mail": "E-Mail schreiben",
+    "linkedin": "LinkedIn-Profil",
+    "github": "GitHub-Profil"
   },
   "hero": {
     "role": "Frontend Developer",
-    "location": "Oberriet, Switzerland"
+    "location": "Oberriet SG"
   },
   "whyMe": {
-    "title": "Why me",
-    "text": "I enjoy turning ideas into applications that work reliably and are easy to use. What drives me is the moment a complex problem becomes a clean, understandable solution. I keep improving my skills through my own projects, code reviews and new technologies.",
-    "iAm": "I am",
-    "located": "located in Oberriet, CH",
-    "remote": "open to work remote",
-    "relocate": "open to relocate",
-    "cta": "Contact me"
+    "title": "Warum ich",
+    "text": "Mich begeistert es, Ideen in Anwendungen umzusetzen, die zuverlässig funktionieren und einfach zu bedienen sind. Mich treibt der Moment an, in dem aus einem komplexen Problem eine saubere, verständliche Lösung wird. Meine Fähigkeiten baue ich mit eigenen Projekten und neuen Technologien laufend aus.",
+    "iAm": "Ich bin",
+    "located": "wohnhaft in Oberriet SG",
+    "remote": "offen für Remote-Arbeit",
+    "relocate": "umzugsbereit",
+    "cta": "Kontakt"
   },
   "skills": {
-    "title": "My Skill Set",
-    "text": "In several projects I have built web applications with Angular, TypeScript and JavaScript, from the first layout to a working app with a database. I learn new technologies quickly and enjoy working my way into tools I have not used before.",
-    "challengeTitle": "Challenge me",
-    "challenge": "You need a technology I have not used yet? I am happy to learn it and use it in your project.",
-    "cta": "Let's talk"
+    "title": "Meine Skills",
+    "text": "In mehreren Projekten habe ich Webanwendungen mit Angular, TypeScript und JavaScript gebaut, vom ersten Layout bis zur fertigen App mit Datenbank. Neue Technologien lerne ich schnell und arbeite mich gern in Werkzeuge ein, die ich noch nicht kenne.",
+    "challengeTitle": "Fordere mich",
+    "challenge": "Du brauchst eine Technologie, die ich noch nicht kenne? Ich lerne sie gern und setze sie in deinem Projekt ein.",
+    "cta": "Lass uns reden"
   },
   "work": {
-    "title": "My Work",
-    "project": "Project",
-    "about": "About the project",
-    "technologies": "Technologies I have used",
-    "learned": "What I have learned",
-    "group": "My group-projects experience",
+    "title": "Projekte",
+    "project": "Projekt",
+    "about": "Über das Projekt",
+    "technologies": "Verwendete Technologien",
+    "learned": "Was ich gelernt habe",
+    "group": "Meine Erfahrung im Team",
     "github": "GitHub",
-    "live": "Live Test",
-    "showMore": "Show me more",
-    "showLess": "Show me less",
-    "ongoingTitle": "Ongoing project",
-    "ongoing": "I am currently building a backend with Docker and a CI/CD pipeline. My focus is on security from the start: automated tests, dependency checks and clean deployments. Good planning makes the difference between a project that runs and one that lasts.",
-    "ongoingCta": "Let's talk",
+    "live": "Live-Test",
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen",
+    "ongoingTitle": "Aktuelles Projekt",
+    "ongoing": "Zurzeit baue ich ein Backend mit Docker und einer CI/CD-Pipeline. Sicherheit plane ich von Anfang an mit ein: automatische Tests, Prüfung der Abhängigkeiten und saubere Deployments. Gute Planung entscheidet, ob ein Projekt nur läuft oder langfristig trägt.",
+    "ongoingCta": "Lass uns reden",
     "join": {
-      "about": "Kanban task manager. Create tasks, assign contacts and move them by drag and drop. Stakeholders can send requests by e-mail, an AI workflow turns them into tasks.",
-      "third": "Team project with two teammates, I was responsible for the final submission. On my own I then added an AI workflow: n8n reads incoming e-mails, Gemini turns them into structured tasks and saves them in the Triage column."
+      "about": "Kanban-Taskmanager. Aufgaben erstellen, Kontakten zuweisen und per Drag-and-drop verschieben. Anfragen per E-Mail wandelt ein KI-Workflow automatisch in Aufgaben um.",
+      "third": "Gruppenprojekt mit zwei Teamkollegen, ich war für die Abgabe verantwortlich. Allein habe ich danach einen KI-Workflow ergänzt: n8n liest eingehende E-Mails, Gemini macht daraus strukturierte Aufgaben und legt sie in der Spalte Triage ab."
     },
     "polloLoco": {
-      "about": "Jump, run and throw game based on an object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.",
-      "third": "Solo project. I learned to plan a class structure before coding: character, chickens and endboss inherit from one shared base class, so movement and collision logic exists only once."
+      "about": "Jump-and-Run-Spiel mit objektorientiertem Aufbau. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen die verrückte Henne zu kämpfen.",
+      "third": "Einzelprojekt. Ich habe gelernt, die Klassenstruktur vor dem Programmieren zu planen: Figur, Hühner und Endboss erben von einer gemeinsamen Basisklasse, Bewegung und Kollision gibt es dadurch nur einmal."
     },
     "dabubble": {
-      "about": "Slack-like team chat with channels, direct messages, threads and reactions in real time, including Google and guest login.",
-      "third": "Planned as a team project, but with too few participants I built it on my own in Angular with signals and Firebase. I learned to secure data with Firestore rules (deny by default, members only) and to keep many real-time listeners clean and fast."
+      "about": "Team-Chat nach dem Vorbild von Slack: Channels, Direktnachrichten, Threads und Reaktionen in Echtzeit, mit Google- und Gäste-Login.",
+      "third": "Als Gruppenprojekt geplant, wegen zu weniger Teilnehmer habe ich es allein in Angular mit Signals und Firebase umgesetzt. Ich habe gelernt, Daten mit Firestore-Regeln abzusichern (standardmäßig gesperrt, nur für Mitglieder) und viele Echtzeit-Listener sauber und schnell zu halten."
     }
   },
   "references": {
-    "title": "References",
-    "teaser": "Need a team player?",
-    "teaserText": "Here is what my colleagues say about me",
-    "slide": "Show reference {{n}}"
+    "title": "Referenzen",
+    "teaser": "Suchst du einen Teamplayer?",
+    "teaserText": "Das sagen meine Kolleginnen und Kollegen",
+    "slide": "Referenz {{n}} anzeigen"
   },
   "contact": {
-    "title": "Contact me",
-    "lead": "Let us work together.",
-    "text": "Looking for a developer who enjoys both frontend and backend? Tell me about your team and the role you have in mind. I am motivated to contribute from day one and to keep growing with your projects.",
-    "email": "E-mail",
+    "title": "Kontakt",
+    "lead": "Lass uns zusammenarbeiten.",
+    "text": "Du suchst einen Entwickler, der Frontend und Backend gleichermaßen mag? Erzähl mir von deinem Team und der Rolle, die du im Kopf hast. Ich bin motiviert, vom ersten Tag an mitzuarbeiten und mit euren Projekten zu wachsen.",
+    "email": "E-Mail",
     "phone": "Tel",
-    "name": "Your name",
-    "mail": "Your e-mail",
-    "message": "Your message",
-    "privacyBefore": "I've read the",
-    "privacyLink": "privacy policy",
-    "privacyAfter": "and agree to the processing of my data as outlined.",
-    "send": "Send",
-    "sending": "Sending ...",
-    "success": "Thank you! Your message has been sent. I will get back to you soon.",
-    "failure": "Sorry, your message could not be sent. Please try again or write me an e-mail.",
+    "name": "Dein Name",
+    "mail": "Deine E-Mail",
+    "message": "Deine Nachricht",
+    "privacyBefore": "Ich habe die",
+    "privacyLink": "Datenschutzerklärung",
+    "privacyAfter": "gelesen und stimme der Verarbeitung meiner Daten zu.",
+    "send": "Senden",
+    "sending": "Wird gesendet ...",
+    "success": "Danke! Deine Nachricht wurde gesendet. Ich melde mich bald bei dir.",
+    "failure": "Die Nachricht konnte leider nicht gesendet werden. Versuch es bitte noch einmal oder schreib mir eine E-Mail.",
     "errors": {
-      "nameRequired": "Please enter your name.",
-      "nameShort": "Your name must be at least 2 characters.",
-      "emailRequired": "Please enter your e-mail.",
-      "emailInvalid": "Please enter a valid e-mail address.",
-      "messageRequired": "Please enter a message.",
-      "messageShort": "Your message must be at least 10 characters.",
-      "privacy": "Please accept the privacy policy."
+      "nameRequired": "Bitte gib deinen Namen ein.",
+      "nameShort": "Der Name muss mindestens 2 Zeichen haben.",
+      "emailRequired": "Bitte gib deine E-Mail ein.",
+      "emailInvalid": "Bitte gib eine gültige E-Mail-Adresse ein.",
+      "messageRequired": "Bitte gib eine Nachricht ein.",
+      "messageShort": "Die Nachricht muss mindestens 10 Zeichen haben.",
+      "privacy": "Bitte akzeptiere die Datenschutzerklärung."
     }
   },
   "footer": {
-    "legal": "Legal notice",
-    "privacy": "privacy policy"
+    "legal": "Impressum",
+    "privacy": "Datenschutz"
   }
 }
