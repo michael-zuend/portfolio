@@ -1,5 +1,9 @@
 @use 'styles/tokens' as *;
 
+:host {
+  display: block;
+}
+
 article {
   position: relative;
   background: linear-gradient(110deg, #343d1b 0%, #36411e 45%, #3d4724 100%);
@@ -25,7 +29,7 @@ h3 {
   line-height: 1.2;
 }
 
-// Überschriften mit hellgrünem Kreis davor
+// Headings with a light green circle in front
 h4 {
   position: relative;
   font-weight: 400;
@@ -62,7 +66,7 @@ h4 {
   display: none;
 }
 
-// ---------- Desktop: alles absolut wie in Figma ----------
+// ---------- Desktop: everything positioned absolutely like in Figma ----------
 @include desktop {
   article {
     width: u(920);
@@ -148,7 +152,7 @@ h4 {
   }
 }
 
-// ---------- Mobile: aufklappbar ----------
+// ---------- Mobile: expandable ----------
 @include mobile {
   article {
     display: flex;
@@ -185,11 +189,14 @@ h4 {
     line-height: 21px;
   }
 
+  // The card has more padding on the left (43px) than on the right (20px).
+  // align-self + a negative margin puts the button exactly in the middle of the card.
   .toggle {
     display: flex;
+    align-self: center;
     align-items: center;
     gap: 6px;
-    margin: 18px auto 0;
+    margin: 18px 0 0 -23px;
     color: $green;
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -204,17 +211,17 @@ h4 {
     display: none;
   }
 
-  :host(.open) {
-    .details {
-      display: block;
-    }
+  :host(.open) .details {
+    display: block;
+  }
 
-    .toggle {
-      order: 2;
+  // Below the card: centered across the full width
+  .toggle--less {
+    width: fit-content;
+    margin: 18px auto 0;
 
-      img {
-        transform: rotate(180deg);
-      }
+    img {
+      transform: rotate(180deg);
     }
   }
 
@@ -227,12 +234,16 @@ h4 {
 
   .links {
     justify-content: center;
-    gap: 16px;
+    flex-wrap: nowrap;
+    gap: 12px;
     margin: 30px 0 0 -23px;
 
+    // Button text always stays on one line, even on narrow phones
     .btn {
       height: 46px;
-      padding: 0 30px;
+      padding: 0 24px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
   }
 }

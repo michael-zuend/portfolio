@@ -9,16 +9,18 @@
     <p>{{ 'work.' + project().key + '.about' | translate }}</p>
   </div>
 
-  <button
-    type="button"
-    class="toggle"
-    [attr.aria-expanded]="open()"
-    [attr.aria-controls]="bodyId()"
-    (click)="open.set(!open())"
-  >
-    {{ (open() ? 'work.showLess' : 'work.showMore') | translate }}
-    <img src="assets/icons/triangle.svg" alt="" />
-  </button>
+  @if (!open()) {
+    <button
+      type="button"
+      class="toggle"
+      aria-expanded="false"
+      [attr.aria-controls]="bodyId()"
+      (click)="open.set(true)"
+    >
+      {{ 'work.showMore' | translate }}
+      <img src="assets/icons/triangle.svg" alt="" />
+    </button>
+  }
 
   <div class="details" [id]="bodyId()">
     <div class="block tech">
@@ -43,3 +45,17 @@
     </div>
   </div>
 </article>
+
+<!-- Mobile: "Show less" is centered below the card (Figma) -->
+@if (open()) {
+  <button
+    type="button"
+    class="toggle toggle--less"
+    aria-expanded="true"
+    [attr.aria-controls]="bodyId()"
+    (click)="open.set(false)"
+  >
+    {{ 'work.showLess' | translate }}
+    <img src="assets/icons/triangle.svg" alt="" />
+  </button>
+}

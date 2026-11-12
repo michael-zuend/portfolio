@@ -3,9 +3,9 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { Project } from '../../../data/projects';
 
 /**
- * Projektkarte. Desktop: alles sichtbar.
- * Mobile: zeigt erst nur "About the project", der Rest klappt mit
- * "Show me more" auf (wie in Figma).
+ * Project card. Desktop: everything is visible.
+ * Mobile: shows only "About the project" at first, the rest expands with
+ * "Show more" (like in Figma).
  */
 @Component({
   selector: 'app-project-card',
