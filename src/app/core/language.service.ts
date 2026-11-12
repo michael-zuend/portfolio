@@ -7,8 +7,8 @@ const STORAGE_KEY = 'portfolio-lang';
 
 /**
  * Sprache der Seite (DE/EN).
- * Merkt sich die Wahl im localStorage. Ist der Speicher gesperrt
- * (z. B. privater Modus), funktioniert die Seite trotzdem.
+ * Standard ist Deutsch. Die Wahl wird im localStorage gemerkt.
+ * Ist der Speicher gesperrt (z. B. privater Modus), funktioniert die Seite trotzdem.
  */
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
@@ -18,7 +18,8 @@ export class LanguageService {
   readonly current = this.translate.currentLang;
 
   init(): void {
-    this.use(this.readStored() ?? this.browserLang());
+    // Standard ist Deutsch, ausser der Besucher hat schon EN gewählt
+    this.use(this.readStored() ?? 'de');
   }
 
   use(lang: Lang): void {
@@ -38,9 +39,5 @@ export class LanguageService {
     } catch {
       return null;
     }
-  }
-
-  private browserLang(): Lang {
-    return navigator.language?.toLowerCase().startsWith('de') ? 'de' : 'en';
   }
 }
