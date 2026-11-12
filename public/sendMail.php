@@ -60,12 +60,13 @@ $name = str_replace(["\r", "\n"], ' ', $name);
 $subject = '=?UTF-8?B?' . base64_encode('Portfolio: Nachricht von ' . $name) . '?=';
 $body = "Name: $name\nE-Mail: $email\n\n$message\n";
 $headers = [
-    'From' => $sender,
+    'From' => 'Portfolio Michael Zuend <' . $sender . '>',
     'Reply-To' => $email,
+    'MIME-Version' => '1.0',
     'Content-Type' => 'text/plain; charset=utf-8',
-    'X-Mailer' => 'Portfolio',
 ];
 
-$sent = mail($recipient, $subject, $body, $headers);
+// Echter Absender = eigene Domain (-f), sonst stuft der Spamfilter die Mail als Fälschung ein
+$sent = mail($recipient, $subject, $body, $headers, '-f ' . $sender);
 http_response_code($sent ? 200 : 500);
 echo json_encode(['ok' => $sent]);
