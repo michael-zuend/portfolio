@@ -225,9 +225,11 @@ h4 {
     }
   }
 
+  // Same distance to the card edge on both sides (20px), so the image is centered
   .preview {
-    margin: 30px 0 0 -30px;
-    width: calc(100% + 30px);
+    margin: 30px 0 0 -23px;
+    width: calc(100% + 23px);
+    max-width: none;
     height: auto;
     aspect-ratio: 339 / 241;
   }

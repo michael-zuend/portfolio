@@ -55,15 +55,19 @@ export class NavService {
 
   /**
    * Desktop: scroll position where the section heading sits
-   * 60 Figma px to the right of the sidebar (172 px).
+   * 60 Figma px to the right of the sidebar (172 px), but never so far
+   * left that a part of the previous section is still visible.
    */
   private leftFor(id: SectionId): number | null {
     const section = document.getElementById(id);
     if (!section || !this.track) return null;
     if (id === 'hero') return 0;
     const anchor = section.querySelector<HTMLElement>('[data-anchor]') ?? section;
-    const left = anchor.getBoundingClientRect().left - this.track.getBoundingClientRect().left + this.track.scrollLeft;
-    return left - 232 * this.unit();
+    const trackLeft = this.track.getBoundingClientRect().left - this.track.scrollLeft;
+    const byHeading = anchor.getBoundingClientRect().left - trackLeft - 232 * this.unit();
+    // Never show the end of the previous section: the section starts at the sidebar at the latest
+    const bySection = section.getBoundingClientRect().left - trackLeft - 172 * this.unit();
+    return Math.max(byHeading, bySection);
   }
 
   /**
@@ -85,10 +89,14 @@ export class NavService {
       return r.left - trackLeft + r.width / 2 - center;
     });
 
-    const all = [...headings, ...cards, max].map((v) => Math.round(Math.min(Math.max(v, 0), max))).sort((a, b) => a - b);
-    // Drop points that are close together, so one wheel turn always moves visibly
+    const clamp = (v: number) => Math.round(Math.min(Math.max(v, 0), max));
+    // A card close to a section heading is skipped: the heading position wins,
+    // so the start of a section never shows the end of the previous one.
     const minGap = track.clientWidth * 0.15;
-    return all.filter((v, i) => i === 0 || v - all[i - 1] > minGap);
+    const fixed = [...headings, max].map(clamp);
+    const extra = cards.map(clamp).filter((c) => fixed.every((f) => Math.abs(c - f) > minGap));
+    const all = [...fixed, ...extra].sort((a, b) => a - b);
+    return all.filter((v, i) => i === 0 || v - all[i - 1] > 2);
   }
 
   scrollTo(id: SectionId, smooth = true): void {
