@@ -1,0 +1,108 @@
+<app-legal-layout [title]="'footer.privacy' | translate">
+  @if (lang.current() === 'de') {
+    <section>
+      <h2>Verantwortlich</h2>
+      <p>
+        Michael Zünd, Alvierstrasse 11a, 9463 Oberriet, Schweiz<br />
+        E-Mail: <a [href]="'mailto:' + social.email">{{ social.email }}</a>
+      </p>
+    </section>
+    <section>
+      <h2>Grundsatz</h2>
+      <p>
+        Ich verarbeite personenbezogene Daten nur, soweit es für den Betrieb dieser Website und die
+        Beantwortung deiner Anfragen nötig ist. Rechtsgrundlagen sind das schweizerische Datenschutzgesetz
+        (DSG) und, soweit anwendbar, die Datenschutz-Grundverordnung (DSGVO).
+      </p>
+    </section>
+    <section>
+      <h2>Hosting und Server-Logs</h2>
+      <p>
+        Die Website wird bei cyon in Basel (Schweiz) gehostet. Beim Aufruf speichert der Server technisch
+        notwendige Daten wie IP-Adresse, Datum, Uhrzeit und aufgerufene Seite. Diese Daten dienen nur der
+        Sicherheit und dem stabilen Betrieb und werden nach kurzer Zeit gelöscht.
+      </p>
+    </section>
+    <section>
+      <h2>Kontaktformular</h2>
+      <p>
+        Wenn du mir über das Formular schreibst, verarbeite ich Name, E-Mail-Adresse und Nachricht, um deine
+        Anfrage zu beantworten. Die Daten werden per E-Mail an mich gesendet, nicht an Dritte weitergegeben
+        und gelöscht, sobald sie nicht mehr benötigt werden. Die Einwilligung kannst du jederzeit widerrufen.
+      </p>
+    </section>
+    <section>
+      <h2>Cookies, Tracking und Schriften</h2>
+      <p>
+        Diese Website setzt keine Cookies und verwendet keine Analyse- oder Tracking-Dienste. Die
+        Schriftart ist lokal eingebunden, es werden keine Daten an Google oder andere Anbieter übertragen.
+        Gespeichert wird nur deine Sprachwahl (DE/EN) im lokalen Speicher deines Browsers.
+      </p>
+    </section>
+    <section>
+      <h2>Externe Links</h2>
+      <p>
+        Links zu GitHub und LinkedIn öffnen die Seiten dieser Anbieter. Erst dann gelten deren
+        Datenschutzbestimmungen.
+      </p>
+    </section>
+    <section>
+      <h2>Deine Rechte</h2>
+      <p>
+        Du hast das Recht auf Auskunft, Berichtigung und Löschung deiner Daten. Schreib mir dazu einfach eine
+        E-Mail.
+      </p>
+    </section>
+  } @else {
+    <section>
+      <h2>Controller</h2>
+      <p>
+        Michael Zünd, Alvierstrasse 11a, 9463 Oberriet, Switzerland<br />
+        E-mail: <a [href]="'mailto:' + social.email">{{ social.email }}</a>
+      </p>
+    </section>
+    <section>
+      <h2>Principle</h2>
+      <p>
+        I only process personal data as far as it is necessary to run this website and to answer your
+        requests. The legal basis is the Swiss Federal Act on Data Protection (FADP) and, where applicable,
+        the General Data Protection Regulation (GDPR).
+      </p>
+    </section>
+    <section>
+      <h2>Hosting and server logs</h2>
+      <p>
+        This website is hosted by cyon in Basel (Switzerland). When you visit it, the server stores
+        technically necessary data such as IP address, date, time and requested page. This data is only used
+        for security and stable operation and is deleted after a short time.
+      </p>
+    </section>
+    <section>
+      <h2>Contact form</h2>
+      <p>
+        If you write to me using the form, I process your name, e-mail address and message to answer your
+        request. The data is sent to me by e-mail, not passed on to third parties and deleted as soon as it is
+        no longer needed. You can withdraw your consent at any time.
+      </p>
+    </section>
+    <section>
+      <h2>Cookies, tracking and fonts</h2>
+      <p>
+        This website does not use cookies or any analytics or tracking services. The font is hosted locally,
+        no data is sent to Google or other providers. Only your language choice (DE/EN) is stored in your
+        browser's local storage.
+      </p>
+    </section>
+    <section>
+      <h2>External links</h2>
+      <p>
+        Links to GitHub and LinkedIn open the websites of these providers. Their privacy policies apply from
+        that point on.
+      </p>
+    </section>
+    <section>
+      <h2>Your rights</h2>
+      <p>You have the right to access, correct and delete your data. Just send me an e-mail.</p>
+    </section>
+  }
+</app-legal-layout>

@@ -1,0 +1,73 @@
+<app-legal-layout [title]="'footer.legal' | translate">
+  @if (lang.current() === 'de') {
+    <section>
+      <h2>Angaben zum Betreiber</h2>
+      <p>Michael Zünd<br />Alvierstrasse 11a<br />9463 Oberriet<br />Schweiz</p>
+      <p class="gap">E-Mail: <a [href]="'mailto:' + social.email">{{ social.email }}</a><br />Telefon: {{ social.phone }}</p>
+    </section>
+    <section>
+      <h2>Zweck der Website</h2>
+      <p>
+        Diese Website ist mein persönliches Portfolio. Sie stellt meine Projekte und Fähigkeiten als
+        Entwickler vor. Es werden keine Waren oder Dienstleistungen verkauft.
+      </p>
+    </section>
+    <section>
+      <h2>Haftung für Inhalte</h2>
+      <p>
+        Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und
+        Aktualität kann ich jedoch keine Gewähr übernehmen.
+      </p>
+    </section>
+    <section>
+      <h2>Haftung für Links</h2>
+      <p>
+        Diese Website enthält Links zu externen Websites wie GitHub und LinkedIn. Auf deren Inhalte habe ich
+        keinen Einfluss. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich.
+      </p>
+    </section>
+    <section>
+      <h2>Urheberrecht</h2>
+      <p>
+        Texte, Fotos und Code dieser Website sind urheberrechtlich geschützt. Das Design basiert auf einer
+        Vorlage der Developer Akademie GmbH. Die Projekte Join, Pollo Loco und DA Bubble sind im Rahmen der
+        Weiterbildung bei der Developer Akademie entstanden.
+      </p>
+    </section>
+  } @else {
+    <section>
+      <h2>Website operator</h2>
+      <p>Michael Zünd<br />Alvierstrasse 11a<br />9463 Oberriet<br />Switzerland</p>
+      <p class="gap">E-mail: <a [href]="'mailto:' + social.email">{{ social.email }}</a><br />Phone: {{ social.phone }}</p>
+    </section>
+    <section>
+      <h2>Purpose of this website</h2>
+      <p>
+        This website is my personal portfolio. It presents my projects and skills as a developer. No goods
+        or services are sold here.
+      </p>
+    </section>
+    <section>
+      <h2>Liability for content</h2>
+      <p>
+        The content of this website has been created with care. However, I cannot guarantee that it is
+        correct, complete or up to date.
+      </p>
+    </section>
+    <section>
+      <h2>Liability for links</h2>
+      <p>
+        This website contains links to external websites such as GitHub and LinkedIn. I have no influence on
+        their content. The respective provider is always responsible for the content of linked pages.
+      </p>
+    </section>
+    <section>
+      <h2>Copyright</h2>
+      <p>
+        Texts, photos and code on this website are protected by copyright. The design is based on a template
+        by Developer Akademie GmbH. The projects Join, Pollo Loco and DA Bubble were created during my
+        training at the Developer Akademie.
+      </p>
+    </section>
+  }
+</app-legal-layout>

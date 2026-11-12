@@ -1,0 +1,35 @@
+<main class="track" #track>
+  <h1 class="outline-heading heading">{{ title() }}</h1>
+
+  <div class="content">
+    <ng-content />
+  </div>
+
+  <aside class="end">
+    <ul class="direct">
+      <li>
+        <img src="assets/icons/envelope.svg" alt="" />
+        <a [href]="'mailto:' + social.email">{{ 'contact.email' | translate }}: {{ social.email }}</a>
+      </li>
+      @if (social.phone) {
+        <li>
+          <img src="assets/icons/phone.svg" alt="" />
+          <a [href]="'tel:' + social.phone.replaceAll(' ', '')">{{ 'contact.phone' | translate }}: {{ social.phone }}</a>
+        </li>
+      }
+    </ul>
+
+    <a routerLink="/" class="back" [attr.aria-label]="'nav.backToStart' | translate">
+      <img src="assets/icons/arrow-left.svg" alt="" />
+    </a>
+
+    <nav class="legal" aria-label="Legal">
+      <a routerLink="/legal-notice">{{ 'footer.legal' | translate }}</a>
+      <a routerLink="/privacy-policy">{{ 'footer.privacy' | translate }}</a>
+      <p>© Michael Zünd {{ year }}</p>
+    </nav>
+    <div class="green-end" aria-hidden="true"></div>
+  </aside>
+
+  <app-mobile-footer />
+</main>
