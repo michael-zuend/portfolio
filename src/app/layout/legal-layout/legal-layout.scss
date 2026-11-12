@@ -96,6 +96,8 @@ app-legal-layout {
     }
   }
 
+  // Same positions as in the contact section, so the right side
+  // looks identical on every page (arrow, legal links, copyright).
   .end {
     position: relative;
     flex: 0 0 u(700);
@@ -104,13 +106,14 @@ app-legal-layout {
 
   .direct {
     position: absolute;
-    right: u(120);
-    top: u(140);
+    right: u(122);
+    top: u(151);
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: u(16);
     font-size: u(18);
+    line-height: u(22);
 
     img {
       width: u(22);
@@ -120,11 +123,15 @@ app-legal-layout {
 
   .back {
     position: absolute;
-    right: u(220);
-    top: u(440);
+    right: u(124);
+    top: u(553);
     width: u(122);
+    height: u(48);
 
     img {
+      display: block;
+      width: 100%;
+      height: 100%;
       transition: transform 0.25s;
     }
 
@@ -135,8 +142,8 @@ app-legal-layout {
 
   .legal {
     position: absolute;
-    right: u(120);
-    top: u(707);
+    right: u(128);
+    top: u(765);
     display: flex;
     flex-direction: column;
     align-items: flex-end;

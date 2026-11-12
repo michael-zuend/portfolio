@@ -10,11 +10,11 @@ The site presents my projects, skills and a contact form. It is based on a Figma
 
 ## Features
 
-- **Horizontal scrolling on desktop.** The whole page is one horizontal track. One turn of the mouse wheel snaps to the next section; wider sections are scrolled through first. Arrow buttons and the sidebar menu jump directly. After each jump the section heading is visible first, as required by the design.
+- **Horizontal scrolling on desktop.** The whole page is one horizontal track. One turn of the mouse wheel snaps to the next section, in the projects section to the next project card. The legal pages snap between the text and the end of the page. Arrow buttons and the sidebar menu jump directly. After each jump the section heading is visible first, as required by the design.
 - **Vertical layout on mobile and tablet** with burger menu and expandable project cards.
 - **Full-width hero** on every screen size, including widescreen monitors.
 - **German and English.** All texts live in JSON files and can be switched at runtime. German is the default, the choice is remembered in the browser.
-- **Contact form** with validation on blur (not while typing), no layout shift for error messages, a disabled send button until the form is valid, and clear success or error feedback.
+- **Contact form** with validation on blur (not while typing), error messages inside the fields as in the design, strict e-mail check (no double dots or typos like `:` and `;`), a disabled send button until the form is valid, and an animated toast message after sending.
 - **Legal notice and privacy policy** as separate routes.
 
 ## Tech Stack

@@ -25,12 +25,26 @@ export class LegalLayout implements AfterViewInit {
   private readonly destroyRef = inject(DestroyRef);
   private readonly track = viewChild.required<ElementRef<HTMLElement>>('track');
 
+  private lastJump = 0;
+  private lastWheel = 0;
+
+  /**
+   * Desktop: the page has two positions, the text and the end with the
+   * contact links. One turn of the mouse wheel jumps between them.
+   */
   ngAfterViewInit(): void {
     const el = this.track().nativeElement;
     const onWheel = (e: WheelEvent) => {
       if (!this.nav.isDesktop() || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       e.preventDefault();
-      el.scrollBy({ left: e.deltaY * (e.deltaMode === 1 ? 40 : 1) });
+      // Touchpads keep sending events after a gesture. Only jump again after a short pause.
+      const now = performance.now();
+      const pause = now - this.lastWheel > 150;
+      this.lastWheel = now;
+      if (now - this.lastJump < 600 || (!pause && now - this.lastJump < 1200)) return;
+      this.lastJump = now;
+      const end = el.scrollWidth - el.clientWidth;
+      el.scrollTo({ left: e.deltaY > 0 ? end : 0, behavior: 'smooth' });
     };
     el.addEventListener('wheel', onWheel, { passive: false });
     this.destroyRef.onDestroy(() => el.removeEventListener('wheel', onWheel));

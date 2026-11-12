@@ -7,10 +7,17 @@ import { SOCIAL } from '../../data/social';
 import { NextArrow } from '../../shared/next-arrow/next-arrow';
 
 type Field = 'name' | 'email' | 'message' | 'privacy';
-type Status = 'idle' | 'sending' | 'success' | 'error';
+type Status = 'idle' | 'sending';
+type Toast = 'success' | 'error';
 
-// Stricter than Validators.email: requires a domain with a dot (name@domain.ch)
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+/**
+ * Stricter than Validators.email:
+ * - local part: letters, digits and . _ % + - (no double dots, no dot at start or end)
+ * - domain: labels separated by single dots, then a top-level domain of at least 2 letters
+ * Rejects typos like "name@domain..ch", "name@domain:ch" or "name@domain;ch".
+ */
+const EMAIL_PATTERN =
+  /^[A-Za-z0-9_%+-]+(?:\.[A-Za-z0-9_%+-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}$/;
 
 @Component({
   selector: 'app-contact',
@@ -25,6 +32,11 @@ export class Contact {
   protected readonly social = SOCIAL;
   protected readonly status = signal<Status>('idle');
   protected readonly year = new Date().getFullYear();
+
+  /** Toast message after sending: slides in, stays a few seconds, slides out. */
+  protected readonly toast = signal<Toast | null>(null);
+  protected readonly toastLeaving = signal(false);
+  private toastTimers: ReturnType<typeof setTimeout>[] = [];
 
   /** Fields whose errors may be shown right now (only after leaving the field) */
   private readonly showErrors = signal<Record<Field, boolean>>({
@@ -56,6 +68,11 @@ export class Contact {
     this.showErrors.update((s) => ({ ...s, privacy: true }));
   }
 
+  /** Has the user typed something into this field? */
+  protected filled(field: 'name' | 'email' | 'message'): boolean {
+    return this.form.controls[field].value.trim().length > 0;
+  }
+
   /** Translation key of the error message, or null */
   protected error(field: Field): string | null {
     const control = this.form.controls[field];
@@ -79,12 +96,25 @@ export class Contact {
     this.status.set('sending');
     this.contact.send({ name: name.trim(), email: email.trim(), message: message.trim(), website }).subscribe({
       next: () => {
-        this.status.set('success');
+        this.status.set('idle');
         this.form.reset();
         this.showErrors.set({ name: false, email: false, message: false, privacy: false });
-        setTimeout(() => this.status.set('idle'), 6000);
+        this.showToast('success');
       },
-      error: () => this.status.set('error'),
+      error: () => {
+        this.status.set('idle');
+        this.showToast('error');
+      },
     });
+  }
+
+  private showToast(type: Toast): void {
+    this.toastTimers.forEach(clearTimeout);
+    this.toast.set(type);
+    this.toastLeaving.set(false);
+    this.toastTimers = [
+      setTimeout(() => this.toastLeaving.set(true), 4000),
+      setTimeout(() => this.toast.set(null), 4400),
+    ];
   }
 }

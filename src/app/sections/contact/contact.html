@@ -18,14 +18,14 @@
 </div>
 
 <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
-  <div class="field">
+  <div class="field" [class.filled]="filled('name')">
     <label class="sr-only" for="c-name">{{ 'contact.name' | translate }}</label>
     <input
       id="c-name"
       type="text"
       formControlName="name"
       autocomplete="name"
-      [placeholder]="'contact.name' | translate"
+      [placeholder]="(error('name') ?? 'contact.name') | translate"
       [class.invalid]="error('name')"
       [attr.aria-invalid]="!!error('name')"
       aria-describedby="c-name-err"
@@ -35,14 +35,14 @@
     <p class="error" id="c-name-err" aria-live="polite">{{ error('name') ? (error('name')! | translate) : '' }}</p>
   </div>
 
-  <div class="field">
+  <div class="field" [class.filled]="filled('email')">
     <label class="sr-only" for="c-email">{{ 'contact.mail' | translate }}</label>
     <input
       id="c-email"
       type="email"
       formControlName="email"
       autocomplete="email"
-      [placeholder]="'contact.mail' | translate"
+      [placeholder]="(error('email') ?? 'contact.mail') | translate"
       [class.invalid]="error('email')"
       [attr.aria-invalid]="!!error('email')"
       aria-describedby="c-email-err"
@@ -52,27 +52,25 @@
     <p class="error" id="c-email-err" aria-live="polite">{{ error('email') ? (error('email')! | translate) : '' }}</p>
   </div>
 
-  <div class="field field--message">
+  <div class="field field--message" [class.filled]="filled('message')">
     <label class="sr-only" for="c-message">{{ 'contact.message' | translate }}</label>
     <textarea
       id="c-message"
       formControlName="message"
-      [placeholder]="'contact.message' | translate"
+      [placeholder]="(error('message') ?? 'contact.message') | translate"
       [class.invalid]="error('message')"
       [attr.aria-invalid]="!!error('message')"
       aria-describedby="c-message-err"
       (focus)="onFocus('message')"
       (blur)="onBlur('message')"
     ></textarea>
-    <p class="error" id="c-message-err" aria-live="polite">
-      {{ error('message') ? (error('message')! | translate) : '' }}
-    </p>
+    <p class="error" id="c-message-err" aria-live="polite">{{ error('message') ? (error('message')! | translate) : '' }}</p>
   </div>
 
   <!-- Honeypot: invisible to humans -->
   <input class="hp" type="text" formControlName="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-  <div class="privacy">
+  <div class="privacy" [class.invalid]="error('privacy')">
     <label>
       <input type="checkbox" formControlName="privacy" (change)="onPrivacyChange()" (blur)="onBlur('privacy')" />
       <span class="box" aria-hidden="true"></span>
@@ -89,14 +87,14 @@
     {{ (status() === 'sending' ? 'contact.sending' : 'contact.send') | translate }}
   </button>
 
-  <p class="feedback" [class.ok]="status() === 'success'" role="status">
-    @if (status() === 'success') {
-      {{ 'contact.success' | translate }}
-    } @else if (status() === 'error') {
-      {{ 'contact.failure' | translate }}
-    }
-  </p>
 </form>
+
+<!-- Toast message after sending -->
+@if (toast(); as type) {
+  <div class="toast" [class.toast--error]="type === 'error'" [class.toast--leaving]="toastLeaving()" role="status">
+    {{ (type === 'success' ? 'contact.success' : 'contact.failure') | translate }}
+  </div>
+}
 
 <app-next-arrow from="contact" [back]="true" class="arrow" />
 

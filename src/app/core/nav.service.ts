@@ -66,12 +66,29 @@ export class NavService {
     return left - 232 * this.unit();
   }
 
-  /** All snap points for the mouse wheel (desktop), in ascending order. */
+  /**
+   * All snap points for the mouse wheel (desktop), in ascending order:
+   * every section heading plus every element marked with [data-snap]
+   * (each project card). Those are centered in the visible area.
+   */
   stops(): number[] {
     if (!this.track) return [];
-    const max = this.track.scrollWidth - this.track.clientWidth;
-    const points = SECTION_ORDER.map((id) => this.leftFor(id)).filter((v): v is number => v !== null);
-    return [...points, max].map((v) => Math.min(Math.max(v, 0), max)).sort((a, b) => a - b);
+    const track = this.track;
+    const max = track.scrollWidth - track.clientWidth;
+    const sidebar = 172 * this.unit();
+    const center = sidebar + (track.clientWidth - sidebar) / 2;
+    const trackLeft = track.getBoundingClientRect().left - track.scrollLeft;
+
+    const headings = SECTION_ORDER.map((id) => this.leftFor(id)).filter((v): v is number => v !== null);
+    const cards = [...track.querySelectorAll<HTMLElement>('[data-snap]')].map((el) => {
+      const r = el.getBoundingClientRect();
+      return r.left - trackLeft + r.width / 2 - center;
+    });
+
+    const all = [...headings, ...cards, max].map((v) => Math.round(Math.min(Math.max(v, 0), max))).sort((a, b) => a - b);
+    // Drop points that are close together, so one wheel turn always moves visibly
+    const minGap = track.clientWidth * 0.15;
+    return all.filter((v, i) => i === 0 || v - all[i - 1] > minGap);
   }
 
   scrollTo(id: SectionId, smooth = true): void {

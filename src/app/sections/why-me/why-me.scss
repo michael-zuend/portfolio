@@ -12,6 +12,14 @@
   @include mobile {
     padding: 64px 26px 0;
   }
+
+  // Widescreen (Figma): "Why me" sits next to the hero on the first screen,
+  // vertically centered. The design is 900px high, so it moves down by half
+  // of the extra height. The section has no own background, so nothing shows a gap.
+  @include wide {
+    flex-basis: calc(100vw - var(--hero-w));
+    transform: translateY(calc((100dvh - 900px) / 2));
+  }
 }
 
 .text {
@@ -147,5 +155,13 @@
     margin: 36px auto 0;
     width: 146px;
     height: 45px;
+  }
+}
+
+// Widescreen (Figma): arrow at the right edge of the screen, at the height of "I am"
+@include wide {
+  .arrow {
+    left: calc(100% - 162px);
+    top: 290px;
   }
 }

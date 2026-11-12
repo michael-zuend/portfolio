@@ -58,8 +58,13 @@ textarea {
     box-shadow: 0 0 0 1px $green;
   }
 
+  // Figma: red border, the error text replaces the placeholder
   &.invalid {
     border-color: #ff6b6b;
+
+    &::placeholder {
+      color: #ff6b6b;
+    }
   }
 
   // Browser autofill must not change the design (checklist US7)
@@ -77,16 +82,39 @@ textarea {
   resize: none;
 }
 
-// Errors are positioned absolutely below the field: no layout shift
+// Error inside the field (Figma). Empty field: the placeholder shows it.
+// Filled field: a short message on the right inside the border.
+// Positioned absolutely, so the layout never shifts.
 .error {
   position: absolute;
-  left: 25px;
-  top: 100%;
-  margin-top: 2px;
   font-size: 12px;
   line-height: 14px;
   color: #ff6b6b;
   white-space: nowrap;
+  pointer-events: none;
+}
+
+.field {
+  .error {
+    display: none;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.filled .error {
+    display: block;
+  }
+
+  &.filled input.invalid {
+    padding-right: 165px;
+  }
+}
+
+.field--message .error {
+  top: auto;
+  bottom: 18px;
+  transform: none;
 }
 
 .hp {
@@ -147,6 +175,12 @@ textarea {
 
   .error {
     left: 0;
+    top: 100%;
+    margin-top: 2px;
+  }
+
+  &.invalid .box {
+    border-color: #ff6b6b;
   }
 }
 
@@ -169,12 +203,58 @@ textarea {
   }
 }
 
-.feedback {
-  color: #ff6b6b;
-  font-size: 14px;
+// Toast: slides in from the bottom, slides out again after a few seconds
+.toast {
+  position: fixed;
+  z-index: 50;
+  left: 50%;
+  bottom: 32px;
+  max-width: calc(100vw - 32px);
+  padding: 16px 28px;
+  border-radius: 30px;
+  background: $green;
+  color: $bg;
+  font-size: 16px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  animation: toast-in 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
 
-  &.ok {
-    color: $green;
+  &--error {
+    background: #ff6b6b;
+    color: $white;
+  }
+
+  &--leaving {
+    animation: toast-out 0.4s ease-in both;
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 120%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, 120%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast,
+  .toast--leaving {
+    animation-duration: 0.01s;
   }
 }
 
@@ -221,7 +301,14 @@ textarea {
   .error {
     font-size: u(12);
     line-height: u(14);
-    margin-top: u(2);
+  }
+
+  .field .error {
+    right: u(25);
+  }
+
+  .field.filled input.invalid {
+    padding-right: u(190);
   }
 
   .privacy {
@@ -241,13 +328,6 @@ textarea {
     width: u(99);
     height: u(44);
     font-size: u(16);
-  }
-
-  .feedback {
-    position: absolute;
-    left: 0;
-    top: calc(100% + #{u(10)});
-    width: u(455);
   }
 
   .info {
@@ -368,11 +448,6 @@ textarea {
     margin: 18px 0 0 auto;
     width: 94px;
     height: 44px;
-  }
-
-  .feedback {
-    margin-top: 12px;
-    min-height: 34px;
   }
 
   .arrow,

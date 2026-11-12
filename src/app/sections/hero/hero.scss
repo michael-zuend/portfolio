@@ -6,9 +6,10 @@
   overflow: hidden;
 
   @include desktop {
-    // Full screen width, also on wide monitors.
+    // Width is set on the track (--hero-w in home.scss): full screen
+    // width, on widescreen the hero and "Why me" share the screen.
     // The background comes from the track gradient (home.scss).
-    flex: 0 0 max(#{u(1440)}, 100vw);
+    flex: 0 0 var(--hero-w);
     height: 100dvh;
   }
 
@@ -91,11 +92,25 @@ h1 {
 }
 
 // Widescreen: image scales proportionally, 400px from the left and 100px from the top
+// Widescreen (Figma widescreen frame): hero and "Why me" fill the screen
+// together, so the hero arrow is not needed, the "Why me" arrow leads on.
 @include wide {
   .photo {
     left: 400px;
     top: 100px;
     height: calc(100dvh - 100px);
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  // Name centered on the photo, in its lower part (Figma widescreen frame).
+  // Photo: 400px from the left, (100dvh - 100px) high, ratio 959 / 1600.
+  .title {
+    left: calc(400px + (100dvh - 100px) * 959 / 1600 / 2);
+    top: 64dvh;
+    transform: translateX(-50%);
   }
 }
 

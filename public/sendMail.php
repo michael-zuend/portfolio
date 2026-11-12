@@ -47,6 +47,7 @@ $message = trim((string) ($data['message'] ?? ''));
 if (
     mb_strlen($name) < 2 || mb_strlen($name) > 100 ||
     !filter_var($email, FILTER_VALIDATE_EMAIL) ||
+    !preg_match('/^[A-Za-z0-9_%+-]+(?:\.[A-Za-z0-9_%+-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}$/', $email) ||
     mb_strlen($message) < 10 || mb_strlen($message) > 5000
 ) {
     http_response_code(422);

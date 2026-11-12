@@ -2,11 +2,11 @@
 
 <ul class="cards">
   @for (project of projects; track project.key; let i = $index) {
-    <li><app-project-card [project]="project" [number]="i + 1" /></li>
+    <li data-snap><app-project-card [project]="project" [number]="i + 1" /></li>
   }
 </ul>
 
-<div class="ongoing">
+<div class="ongoing" data-snap>
   <h3>
     <span class="number" aria-hidden="true">{{ projects.length + 1 }}</span>
     {{ 'work.ongoingTitle' | translate }}

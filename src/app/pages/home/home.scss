@@ -9,6 +9,12 @@
     scrollbar-width: none;
     // The hero is at least as wide as the screen.
     --hero-w: max(#{u(1440)}, 100vw);
+
+    // Widescreen (Figma widescreen frame): hero and "Why me" share the first
+    // screen. "Why me" starts at about 54 % of the width and fills the rest.
+    @include wide {
+      --hero-w: max(#{u(1440)}, 51.5vw);
+    }
     // Background gradient across the full width (measured in Figma).
     // The stops after the hero move with its width, so there is
     // no hard edge between the hero and "Why me".
@@ -30,6 +36,37 @@
     );
     background-size: calc(var(--hero-w) + #{u(8200)}) 100%;
     background-repeat: no-repeat;
+
+    // Widescreen: colors measured in the Figma widescreen frame. Black behind
+    // the photo, lighter towards "Why me", darker again at the right edge.
+    // After the first screen the gradient continues like on smaller screens.
+    @include wide {
+      background: linear-gradient(
+        90deg,
+        #000 0,
+        #000 29vw,
+        #070707 33vw,
+        #0c0c0c 37vw,
+        #111 41vw,
+        #161616 45vw,
+        #212121 53vw,
+        #2a2a2a 63vw,
+        #292929 69vw,
+        #232323 77vw,
+        #1d1d1d 85vw,
+        #151515 97vw,
+        #111 calc(100vw + #{u(700)}),
+        #0f0f0f calc(100vw + #{u(1200)}),
+        #1a1a1a calc(100vw + #{u(1800)}),
+        #262626 calc(100vw + #{u(2400)}),
+        #2f2f2f calc(100vw + #{u(3000)}),
+        #1e1e1e calc(100vw + #{u(3600)}),
+        #0e0d0d calc(100vw + #{u(4200)}),
+        $bg calc(100vw + #{u(4700)})
+      );
+      background-size: calc(100vw + #{u(7040)}) 100%;
+      background-repeat: no-repeat;
+    }
     background-attachment: local;
 
     &::-webkit-scrollbar {

@@ -83,11 +83,11 @@
     "failure": "Die Nachricht konnte leider nicht gesendet werden. Versuch es bitte noch einmal oder schreib mir eine E-Mail.",
     "errors": {
       "nameRequired": "Bitte gib deinen Namen ein.",
-      "nameShort": "Der Name muss mindestens 2 Zeichen haben.",
+      "nameShort": "Mindestens 2 Zeichen",
       "emailRequired": "Bitte gib deine E-Mail ein.",
-      "emailInvalid": "Bitte gib eine gültige E-Mail-Adresse ein.",
+      "emailInvalid": "Ungültige E-Mail-Adresse",
       "messageRequired": "Bitte gib eine Nachricht ein.",
-      "messageShort": "Die Nachricht muss mindestens 10 Zeichen haben.",
+      "messageShort": "Mindestens 10 Zeichen",
       "privacy": "Bitte akzeptiere die Datenschutzerklärung."
     }
   },

@@ -83,11 +83,11 @@
     "failure": "Sorry, your message could not be sent. Please try again or send me an e-mail.",
     "errors": {
       "nameRequired": "Please enter your name.",
-      "nameShort": "Your name must be at least 2 characters.",
+      "nameShort": "At least 2 characters",
       "emailRequired": "Please enter your e-mail.",
-      "emailInvalid": "Please enter a valid e-mail address.",
+      "emailInvalid": "Invalid e-mail address",
       "messageRequired": "Please enter a message.",
-      "messageShort": "Your message must be at least 10 characters.",
+      "messageShort": "At least 10 characters",
       "privacy": "Please accept the privacy policy."
     }
   },
