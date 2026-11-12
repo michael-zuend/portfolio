@@ -7,24 +7,28 @@
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
-    // Hintergrund-Verlauf über die ganze Breite (aus Figma gemessen)
+    // The hero is at least as wide as the screen.
+    --hero-w: max(#{u(1440)}, 100vw);
+    // Background gradient across the full width (measured in Figma).
+    // The stops after the hero move with its width, so there is
+    // no hard edge between the hero and "Why me".
     background: linear-gradient(
       90deg,
       #000 0,
-      #000 u(900),
-      #0d0d0d u(1440),
-      #282828 u(2000),
-      #1f1e1e u(2600),
-      #111 u(3300),
-      #0f0f0f u(3800),
-      #1a1a1a u(4400),
-      #262626 u(5000),
-      #2f2f2f u(5600),
-      #1e1e1e u(6200),
-      #0e0d0d u(6800),
-      $bg u(7300)
+      #000 calc(var(--hero-w) - #{u(540)}),
+      #0d0d0d var(--hero-w),
+      #282828 calc(var(--hero-w) + #{u(560)}),
+      #1f1e1e calc(var(--hero-w) + #{u(1160)}),
+      #111 calc(var(--hero-w) + #{u(1860)}),
+      #0f0f0f calc(var(--hero-w) + #{u(2360)}),
+      #1a1a1a calc(var(--hero-w) + #{u(2960)}),
+      #262626 calc(var(--hero-w) + #{u(3560)}),
+      #2f2f2f calc(var(--hero-w) + #{u(4160)}),
+      #1e1e1e calc(var(--hero-w) + #{u(4760)}),
+      #0e0d0d calc(var(--hero-w) + #{u(5360)}),
+      $bg calc(var(--hero-w) + #{u(5860)})
     );
-    background-size: u(9640) 100%;
+    background-size: calc(var(--hero-w) + #{u(8200)}) 100%;
     background-repeat: no-repeat;
     background-attachment: local;
 
@@ -36,7 +40,7 @@
   @include mobile {
     display: block;
 
-    // Tablets: Inhalt nicht zu breit werden lassen
+    // Tablets: keep the content from getting too wide
     > :not(app-hero, app-mobile-footer) {
       max-width: 720px;
       margin-inline: auto;
