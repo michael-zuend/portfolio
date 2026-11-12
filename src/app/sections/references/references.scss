@@ -1,0 +1,189 @@
+@use 'styles/tokens' as *;
+
+:host {
+  position: relative;
+  display: block;
+  background: $bg;
+
+  @include desktop {
+    flex: 0 0 u(920);
+    height: 100dvh;
+  }
+
+  @include mobile {
+    padding: 70px 0 0;
+  }
+}
+
+figure {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid $green;
+  border-radius: 34px;
+  transition: box-shadow 0.25s;
+
+  &:hover {
+    box-shadow: 0 0 18px rgba($green, 0.25);
+  }
+}
+
+blockquote {
+  text-align: center;
+}
+
+figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: $green;
+  border-left: 1px solid $green;
+  align-self: stretch;
+  justify-content: center;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+
+  button {
+    width: 8px;
+    height: 8px;
+    border: 1px solid $green;
+    border-radius: 999px;
+    transition: width 0.2s;
+
+    &.active {
+      width: 20px;
+      background: $green;
+    }
+  }
+}
+
+// ---------- Desktop ----------
+@include desktop {
+  .heading {
+    position: absolute;
+    left: u(83);
+    top: u(531);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: u(54);
+  }
+
+  .teaser,
+  .dots {
+    display: none;
+  }
+
+  .list {
+    position: absolute;
+    left: u(187);
+    top: u(240);
+    display: flex;
+    flex-direction: column;
+    gap: u(17);
+
+    li {
+      width: u(477);
+      height: u(181);
+    }
+  }
+
+  figure {
+    border-radius: u(34);
+    padding: u(30) 0;
+  }
+
+  blockquote {
+    width: u(290);
+    padding: 0 u(18);
+    font-size: u(18);
+    line-height: u(22);
+  }
+
+  figcaption {
+    flex: 1;
+    gap: u(10);
+    padding: 0 u(6);
+
+    .name {
+      font-size: u(24);
+    }
+
+    .project {
+      font-size: u(16);
+    }
+  }
+
+  .arrow {
+    left: u(766);
+    top: u(403);
+  }
+}
+
+// ---------- Mobile ----------
+@include mobile {
+  .heading {
+    display: none;
+  }
+
+  .teaser {
+    padding: 0 26px;
+
+    h3 {
+      font-weight: 400;
+      font-size: 22px;
+      color: $green;
+    }
+
+    p {
+      margin-top: 10px;
+    }
+  }
+
+  .list {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    li {
+      flex: 0 0 min(344px, calc(100vw - 46px));
+      height: 160px;
+      scroll-snap-align: center;
+    }
+  }
+
+  figure {
+    border-radius: 30px;
+    padding: 20px 0;
+  }
+
+  blockquote {
+    flex: 0 0 58%;
+    padding: 0 10px 0 16px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  figcaption {
+    flex: 1;
+    gap: 10px;
+    padding: 0 8px;
+
+    .name {
+      font-size: 22px;
+    }
+  }
+
+  .dots {
+    margin-top: 18px;
+  }
+}
