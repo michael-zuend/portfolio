@@ -1,7 +1,7 @@
 @use 'styles/tokens' as *;
 
-// Ohne View-Kapselung, damit die Regeln auch für den eingesetzten
-// Inhalt (ng-content) gelten. Alles ist unter app-legal-layout gekapselt.
+// No view encapsulation, so the rules also apply to the projected
+// content (ng-content). Everything is scoped under app-legal-layout.
 app-legal-layout {
 
 .track {
@@ -24,7 +24,7 @@ app-legal-layout {
   }
 }
 
-// Inhalt der Rechtstexte (kommt per ng-content)
+// Content of the legal texts (comes in via ng-content)
 .content {
   :is(h2, h3) {
     font-weight: 400;
@@ -76,26 +76,23 @@ app-legal-layout {
     font-size: u(54);
   }
 
+  // Text in two columns, fits completely on the first screen.
+  // Fixed width, so nothing overflows into the contact area on the right.
   .content {
     flex: 0 0 auto;
+    align-self: flex-start;
     margin: u(154) 0 0 u(60);
-    height: calc(100dvh - #{u(154 + 90)});
-    column-width: u(745);
-    column-gap: u(307);
-    column-fill: auto;
-    font-size: u(18);
-
-    // Spaltenbreite in Figma: 745px
-    section {
-      width: u(745);
-    }
+    width: u(960);
+    columns: 2;
+    column-gap: u(60);
+    font-size: u(17);
 
     h2 {
-      font-size: u(18);
+      font-size: u(17);
     }
 
     section + section {
-      margin-top: u(22);
+      margin-top: u(20);
     }
   }
 

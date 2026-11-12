@@ -6,9 +6,9 @@ import { SOCIAL } from '../../data/social';
 import { MobileFooter } from '../mobile-footer/mobile-footer';
 
 /**
- * Rahmen für Impressum und Datenschutz.
- * Desktop: horizontal wie die Startseite, der Text fließt in Spalten.
- * Mobile: normal untereinander.
+ * Frame for the legal notice and the privacy policy.
+ * Desktop: horizontal like the home page, the text flows in columns.
+ * Mobile: regular vertical layout.
  */
 @Component({
   selector: 'app-legal-layout',
