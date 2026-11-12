@@ -65,12 +65,6 @@
       "third": "Planned as a team project, but with too few participants I built it on my own in Angular with signals and Firebase. I learned to secure data with Firestore rules (deny by default, members only) and to keep many real-time listeners clean and fast."
     }
   },
-  "references": {
-    "title": "References",
-    "teaser": "Need a team player?",
-    "teaserText": "Here is what my colleagues say about me",
-    "slide": "Show reference {{n}}"
-  },
   "contact": {
     "title": "Contact me",
     "lead": "Let's work together.",
